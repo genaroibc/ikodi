@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import { SerializedPost } from "../types";
+import rehypeHighlight from "rehype-highlight";
 
 const root = process.cwd();
 
@@ -39,7 +40,9 @@ export const getPostsSlugs = ({ removeExtension }: GetPostBySlugProps) => {
 export const getPostBySlug = async (slug: string): Promise<SerializedPost> => {
   const { data: metadata, content } = parseMDXFile({ title: `${slug}.mdx` });
 
-  const source = await serialize(content);
+  const source = await serialize(content, {
+    mdxOptions: { rehypePlugins: [rehypeHighlight] }
+  });
 
   return {
     source,

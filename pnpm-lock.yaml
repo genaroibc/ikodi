@@ -7,11 +7,13 @@ specifiers:
   eslint: 8.28.0
   eslint-config-next: 13.0.5
   gray-matter: ^4.0.3
+  highlight.js: ^11.7.0
   nanoid: ^4.0.0
   next: 13.0.5
   next-mdx-remote: ^4.2.0
   react: 18.2.0
   react-dom: 18.2.0
+  rehype-highlight: ^6.0.0
   typescript: 4.9.3
 
 dependencies:
@@ -21,11 +23,13 @@ dependencies:
   eslint: 8.28.0
   eslint-config-next: 13.0.5_hsf322ms6xhhd4b5ne6lb74y4a
   gray-matter: 4.0.3
+  highlight.js: 11.7.0
   nanoid: 4.0.0
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  rehype-highlight: 6.0.0
   typescript: 4.9.3
 
 packages:
@@ -1168,6 +1172,12 @@ packages:
       reusify: 1.0.4
     dev: false
 
+  /fault/2.0.1:
+    resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
+    dependencies:
+      format: 0.2.2
+    dev: false
+
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -1200,6 +1210,11 @@ packages:
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
+    dev: false
+
+  /format/0.2.2:
+    resolution: {integrity: sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww==}
+    engines: {node: '>=0.4.x'}
     dev: false
 
   /fs.realpath/1.0.0:
@@ -1359,6 +1374,13 @@ packages:
       function-bind: 1.1.1
     dev: false
 
+  /hast-util-is-element/2.1.2:
+    resolution: {integrity: sha512-thjnlGAnwP8ef/GSO1Q8BfVk2gundnc2peGQqEg2kUt/IqesiGg/5mSwN2fE7nLzy61pg88NG6xV+UrGOrx9EA==}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/unist': 2.0.6
+    dev: false
+
   /hast-util-to-estree/2.1.0:
     resolution: {integrity: sha512-Vwch1etMRmm89xGgz+voWXvVHba2iiMdGMKmaMfYt35rbVtFDq8JNwwAIvi8zHMkO6Gvqo9oTMwJTmzVRfXh4g==}
     dependencies:
@@ -1381,8 +1403,21 @@ packages:
       - supports-color
     dev: false
 
+  /hast-util-to-text/3.1.1:
+    resolution: {integrity: sha512-7S3mOBxACy8syL45hCn3J7rHqYaXkxRfsX6LXEU5Shz4nt4GxdjtMUtG+T6G/ZLUHd7kslFAf14kAN71bz30xA==}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-is-element: 2.1.2
+      unist-util-find-after: 4.0.0
+    dev: false
+
   /hast-util-whitespace/2.0.0:
     resolution: {integrity: sha512-Pkw+xBHuV6xFeJprJe2BBEoDV+AvQySaz3pPDRUs5PNZEMQjpXJJueqrpcHIXxnWTcAGi/UOCgVShlkY6kLoqg==}
+    dev: false
+
+  /highlight.js/11.7.0:
+    resolution: {integrity: sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==}
+    engines: {node: '>=12.0.0'}
     dev: false
 
   /ignore/5.2.1:
@@ -1678,6 +1713,14 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
+
+  /lowlight/2.8.0:
+    resolution: {integrity: sha512-WeExw1IKEkel9ZcYwzpvcFzORIB0IlleTcxJYoEuUgHASuYe/OBYbV6ym/AetG7unNVCBU/SXpgTgs2nT93mhg==}
+    dependencies:
+      '@types/hast': 2.3.4
+      fault: 2.0.1
+      highlight.js: 11.7.0
     dev: false
 
   /lru-cache/6.0.0:
@@ -2407,6 +2450,16 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /rehype-highlight/6.0.0:
+    resolution: {integrity: sha512-q7UtlFicLhetp7K48ZgZiJgchYscMma7XjzX7t23bqEJF8m6/s+viXQEe4oHjrATTIZpX7RG8CKD7BlNZoh9gw==}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-to-text: 3.1.1
+      lowlight: 2.8.0
+      unified: 10.1.2
+      unist-util-visit: 4.1.1
+    dev: false
+
   /remark-mdx/2.1.5:
     resolution: {integrity: sha512-A8vw5s+BgOa968Irt8BO7DfWJTE0Fe7Ge3hX8zzDB1DnwMZTNdK6qF2IcFao+/7nzk1vSysKcFp+3ku4vhMpaQ==}
     dependencies:
@@ -2768,6 +2821,13 @@ packages:
     resolution: {integrity: sha512-GFxmfEAa0vi9i5sd0R2kcrI9ks0r82NasRq5QHh2ysGngrc6GiqD5CDf1FjPenY4vApmFASBIIlk/jj5J5YbmQ==}
     dependencies:
       '@types/unist': 2.0.6
+    dev: false
+
+  /unist-util-find-after/4.0.0:
+    resolution: {integrity: sha512-gfpsxKQde7atVF30n5Gff2fQhAc4/HTOV4CvkXpTg9wRfQhZWdXitpyXHWB6YcYgnsxLx+4gGHeVjCTAAp9sjw==}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 5.1.1
     dev: false
 
   /unist-util-generated/2.0.0:
