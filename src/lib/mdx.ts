@@ -1,9 +1,8 @@
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
+import { SerializedPost } from "../types";
 
 const root = process.cwd();
 
@@ -35,16 +34,6 @@ export const getPostsSlugs = ({ removeExtension }: GetPostBySlugProps) => {
   const postsSlugs = postsTitles.map(slug => slug.replace(".mdx", ""));
 
   return postsSlugs;
-};
-
-export type SerializedPost = {
-  source: MDXRemoteSerializeResult<
-    Record<string, unknown>,
-    Record<string, string>
-  >;
-  frontmatter: {
-    slug: string;
-  };
 };
 
 export const getPostBySlug = async (slug: string): Promise<SerializedPost> => {
