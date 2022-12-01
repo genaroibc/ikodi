@@ -15,3 +15,21 @@ const parseMDXFile = ({ title }: ParseMdxProps) => {
 
   return matter(mdxPost);
 };
+
+type GetPostBySlugProps = {
+  removeExtension: boolean;
+};
+
+export const getPostsSlugs = ({ removeExtension }: GetPostBySlugProps) => {
+  const postsPath = path.join(root, "src/posts");
+
+  const postsTitles = fs.readdirSync(postsPath);
+
+  if (!removeExtension) {
+    return postsTitles;
+  }
+
+  const postsSlugs = postsTitles.map(slug => slug.replace(".mdx", ""));
+
+  return postsSlugs;
+};
