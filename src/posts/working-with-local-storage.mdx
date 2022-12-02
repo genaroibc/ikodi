@@ -1,0 +1,82 @@
+---
+title: "Working with the Local Storage API in JavaScript"
+date: "2022-11-30"
+---
+
+# Working with the Local Storage API in JavaScript
+
+_Local Storage_ is an **browser API** that let us **persist information** in the
+browser storage, allowing us to save useful information about _user
+preferences_, such as theme, language, etc...
+
+As you can imagine, it is a very convenient way to personalize user experience.
+
+---
+
+## Getting Started
+
+The way Local Storage stores data is similar to an ordinary JavaScript object: a set of `key` and `value` pairs
+
+```javascript
+const object = {
+  firstKey: "hello",
+  secondKey: "world"
+};
+```
+
+In the browser interface, it looks like this:
+
+| key  | value       |
+| :--- | :---------- |
+| name | Hello world |
+
+We can access the Local Storage data table directly in the browser DevTools:
+
+1. Open a new empty tab
+1. Go to the developer tools.
+1. Navigate to _Application > Storage > Local Storage_
+1. Select the current URL from the list
+
+You can see something like this:
+
+<br />
+
+To add a new `key`-`value` pair, double click below the _key_ column and enter a key (for example _"message"_). Then go to the `value` field and enter a value (for example _"local storage"_).
+
+If we reload the page, we can see that the data we've just added is still there.
+
+<br />
+
+Now: how can we bring this to JavaScript?
+
+Well, it's pretty simple, but you need to know something very important first: **Local Storage can only store data as a _`string`_**, so we need to stringify it.
+
+The way JavaScript lets us do it is via the `JSON object methods`:
+
+- `JSON.stringify()` accepts a valid JavaScript value (object, array, number, etc...) and returns a stringified copy:
+
+```javascript
+JSON.stringify({
+  name: "foo",
+  age: 23
+}); // returns a string
+```
+
+- `JSON.parse()` accepts a valid **stringified** JavaScript
+  value and returns a valid JavaScript value:
+
+```javascript
+JSON.parse("{name:'foo',age:23}"); // returns a JavaScript object
+```
+
+With this in mind, we are ready to interact with the Local Storage programmatically:
+
+The Local Storage API provides us the following methods:
+
+- `localStorage.setItem(<key>, <stringified-data>)` // to set
+
+- `localStorage.clear()`
+
+- `localStorage.clear()`
+
+- `localStorage.clear()`
