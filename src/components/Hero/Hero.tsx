@@ -5,14 +5,12 @@ export function Hero() {
     <section className={styles.hero}>
       <h1 className={styles.hero_title}>IKodi</h1>
       <h2 className={styles.hero_subtitle}>
-        a blog about{" "}
-        <span className={styles.hero_subtitle__highlighted}>
-          web development.
-        </span>
+        a blog about <span className="text-highlighted">web development.</span>
       </h2>
 
       <p className={styles.hero_description}>
-        Welcome 👋. I am Genaro Bonavita, Frontend Developer.
+        Welcome 👋. I am <span className="text-bold">Genaro Bonavita</span>,
+        Frontend Developer.
       </p>
       <p className={styles.hero_description}>
         Here I share my knowledge writing posts about different tools,

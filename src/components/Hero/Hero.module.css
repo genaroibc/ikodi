@@ -17,10 +17,6 @@
   text-align: center;
 }
 
-.hero_subtitle__highlighted {
-  color: var(--complement-color);
-}
-
 .hero_description {
   font-size: 1.5rem;
 }
