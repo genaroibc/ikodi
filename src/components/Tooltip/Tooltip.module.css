@@ -1,0 +1,42 @@
+.tooltip_container {
+  position: relative;
+  display: inline;
+}
+
+.tooltip {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  gap: 0 1rem;
+
+  padding: 0.3rem;
+
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+
+  transform: translateX(-50%) scale(1.1);
+
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.tooltip::after {
+  content: "";
+
+  width: 15px;
+  height: 15px;
+
+  position: absolute;
+  bottom: -12px;
+  z-index: 1100;
+
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+
+  background-color: inherit;
+}
+
+.tooltip_container:hover .tooltip {
+  display: flex;
+}
