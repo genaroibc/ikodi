@@ -24,7 +24,7 @@ export function Header() {
     <header className={styles.header}>
       <Image
         className={styles.logo}
-        src="/logo-dark.png"
+        src="/img/logo-dark.png"
         alt="IKodi Logo"
         width={390}
         height={187}
