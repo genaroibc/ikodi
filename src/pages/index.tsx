@@ -1,4 +1,4 @@
-import { PostCardList } from "../components/PostCardList/PostCardList";
+import { Hero } from "../components/Hero/Hero";
 import { getAllPostsMetadata } from "../lib/mdx";
 import { Post } from "../types";
 
@@ -9,9 +9,7 @@ type Props = {
 export default function Home({ posts }: Props) {
   return (
     <>
-      <h1>IKodi</h1>
-
-      <PostCardList posts={posts} />
+      <Hero />
     </>
   );
 }

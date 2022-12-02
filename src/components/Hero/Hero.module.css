@@ -1,0 +1,26 @@
+.hero {
+  max-width: 700px;
+  margin: 4rem auto;
+}
+
+.hero_title {
+  margin: 0.5rem auto;
+
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+.hero_subtitle {
+  margin: 0.5rem auto;
+
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.hero_subtitle__highlighted {
+  color: var(--complement-color);
+}
+
+.hero_description {
+  font-size: 1.5rem;
+}
