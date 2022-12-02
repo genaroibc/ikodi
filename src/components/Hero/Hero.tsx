@@ -1,4 +1,20 @@
+import Link from "next/link";
+import { Tooltip } from "../Tooltip/Tooltip";
+import { TooltipItem } from "../Tooltip/TooltipItem/TooltipItem";
 import styles from "./Hero.module.css";
+
+const CONTACT_ITEMS: Array<TooltipItem> = [
+  {
+    iconSrc: "/svg/github.svg",
+    title: "TITLE",
+    href: "https://github.com/GenaroIBC"
+  },
+  {
+    iconSrc: "/svg/linkedin.svg",
+    title: "TITLE",
+    href: "https://www.linkedin.com/in/genaro-bonavita-170742231/"
+  }
+];
 
 export function Hero() {
   return (
@@ -9,8 +25,11 @@ export function Hero() {
       </h2>
 
       <p className={styles.hero_description}>
-        Welcome 👋. I am <span className="text-bold">Genaro Bonavita</span>,
-        Frontend Developer.
+        Welcome 👋. I am{" "}
+        <Tooltip items={CONTACT_ITEMS}>
+          <span className="text-bold">Genaro Bonavita</span>
+        </Tooltip>
+        , Frontend Developer.
       </p>
       <p className={styles.hero_description}>
         Here I share my knowledge writing posts about different tools,
