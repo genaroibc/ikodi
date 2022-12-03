@@ -9,14 +9,14 @@ type Props = {
 
 export function Tooltip({ items, children }: Props) {
   return (
-    <div className={styles.tooltip_container}>
+    <span className={styles.tooltip_container}>
       {children}
 
-      <div className={styles.tooltip}>
+      <span className={styles.tooltip}>
         {items.map(item => (
           <TooltipItem {...item} key={nanoid()} />
         ))}
-      </div>
-    </div>
+      </span>
+    </span>
   );
 }
