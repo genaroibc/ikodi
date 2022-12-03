@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Tooltip } from "../Tooltip/Tooltip";
 import { TooltipItem } from "../Tooltip/TooltipItem/TooltipItem";
 import styles from "./Hero.module.css";
@@ -21,7 +20,7 @@ export function Hero() {
     <section className={styles.hero}>
       <h1 className={styles.hero_title}>IKodi</h1>
       <h2 className={styles.hero_subtitle}>
-        a blog about <span className="text-highlighted">web development.</span>
+        a blog about <span className="text-highlighted">web development</span>
       </h2>
 
       <p className={styles.hero_description}>
@@ -32,7 +31,7 @@ export function Hero() {
         , Frontend Developer.
       </p>
       <p className={styles.hero_description}>
-        Here I share my knowledge writing posts about different tools,
+        Here I share my knowledge writting posts about different tools,
         technologies and concepts.
       </p>
       <p className={styles.hero_description}>I hope you enjoy it 🚀!</p>
