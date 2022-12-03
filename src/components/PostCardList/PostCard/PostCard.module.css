@@ -1,0 +1,41 @@
+.post_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 1.5rem;
+
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+
+.post_card__title {
+  margin: 0 0 1.5rem;
+
+  font-size: 1.4rem;
+}
+
+.post_card__date {
+  margin: 0;
+
+  opacity: 0.6;
+}
+
+.post_card__link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  padding: 0.5rem 1rem;
+
+  background-color: var(--terciary-color);
+  color: #fff;
+  border-radius: 5px;
+
+  transition: 0.3s box-shadow ease-out;
+}
+
+.post_card__link:hover {
+  box-shadow: 0px 5px 5px 2px #0004;
+}
