@@ -1,4 +1,5 @@
 import { Hero } from "../components/Hero/Hero";
+import { PostCardList } from "../components/PostCardList/PostCardList";
 import { getAllPostsMetadata } from "../lib/mdx";
 import { Post } from "../types";
 
@@ -10,6 +11,10 @@ export default function Home({ posts }: Props) {
   return (
     <>
       <Hero />
+
+      <hr />
+
+      <PostCardList posts={posts} />
     </>
   );
 }
