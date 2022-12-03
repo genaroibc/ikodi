@@ -10,7 +10,7 @@
   align-items: center;
   gap: 0 1rem;
 
-  padding: 0.3rem;
+  padding: 0.5rem;
 
   position: absolute;
   bottom: 115%;
@@ -18,7 +18,7 @@
 
   transform: translateX(-50%) scale(1.1);
 
-  background-color: #eee;
+  background-color: var(--complement-color);
   border-radius: 10px;
 }
 

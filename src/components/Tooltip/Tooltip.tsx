@@ -1,9 +1,9 @@
 import { nanoid } from "nanoid";
-import { TooltipItem } from "./TooltipItem/TooltipItem";
 import styles from "./Tooltip.module.css";
+import { ContactItem } from "../ContactItem/ContactItem";
 
 type Props = {
-  items: Array<TooltipItem>;
+  items: Array<ContactItem>;
   children: JSX.Element;
 };
 
@@ -14,7 +14,7 @@ export function Tooltip({ items, children }: Props) {
 
       <span className={styles.tooltip}>
         {items.map(item => (
-          <TooltipItem {...item} key={nanoid()} />
+          <ContactItem {...item} key={nanoid()} />
         ))}
       </span>
     </span>

@@ -1,14 +1,14 @@
-.tooltip_item {
+.contact_item {
   padding: 0;
   margin: 0;
 }
 
-.tooltip_item__icon {
+.contact_item__icon {
   display: block;
   transition: 0.3s transform ease, 0.3s filter ease-in-out;
 }
 
-.tooltip_item__icon:hover {
+.contact_item__icon:hover {
   filter: drop-shadow(0 10px 2px #0005);
   transform: translateY(-7px);
 }
