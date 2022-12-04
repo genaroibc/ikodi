@@ -1,8 +1,8 @@
+import { ContactItem } from "../ContactItem/ContactItem";
 import { Tooltip } from "../Tooltip/Tooltip";
-import { TooltipItem } from "../Tooltip/TooltipItem/TooltipItem";
 import styles from "./Hero.module.css";
 
-const CONTACT_ITEMS: Array<TooltipItem> = [
+const CONTACT_ITEMS: Array<ContactItem> = [
   {
     iconSrc: "/svg/github.svg",
     title: "TITLE",

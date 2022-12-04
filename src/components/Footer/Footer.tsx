@@ -1,8 +1,8 @@
+import { ContactItem } from "../ContactItem/ContactItem";
 import { ContactBar } from "./ContactBar/ContactBar";
-import { ContactBarItem } from "./ContactBar/ContactBarItem/ContactBarItem";
 import styles from "./Footer.module.css";
 
-const CONTACT_ITEMS: Array<ContactBarItem> = [
+const CONTACT_ITEMS: Array<ContactItem> = [
   {
     iconSrc: "/svg/github.svg",
     title: "TITLE",
