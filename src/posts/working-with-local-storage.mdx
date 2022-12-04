@@ -15,7 +15,7 @@ As you can imagine, it is a very convenient way to personalize user experience.
 
 ## Getting Started
 
-The way Local Storage stores data is similar to an ordinary JavaScript object: a set of `key` and `value` pairs
+The way Local Storage stores data is similar to an ordinary JavaScript object, that is a set of _key_ and _value_ pairs:
 
 ```javascript
 const object = {
@@ -24,34 +24,34 @@ const object = {
 };
 ```
 
-In the browser interface, it looks like this:
-
-| key  | value       |
-| :--- | :---------- |
-| name | Hello world |
+<br />
 
 We can access the Local Storage data table directly in the browser DevTools:
 
 1. Open a new empty tab
 1. Go to the developer tools.
 1. Navigate to _Application > Storage > Local Storage_
-1. Select the current URL from the list
+   ![Application window](/img/first.png)
+1. Select the first URL from the list
+   ![URLs list](/img/second.png)
 
 You can see something like this:
+![Local Storage data table](/img/third.png)
 
 <br />
 
-To add a new `key`-`value` pair, double click below the _key_ column and enter a key (for example _"message"_). Then go to the `value` field and enter a value (for example _"local storage"_).
+To add a new key/value pair, double click below the _key_ column and enter a key (for example _"message"_). Then go to the _value_ field and enter a value (for example _"local storage"_).
 
-If we reload the page, we can see that the data we've just added is still there.
+If we reload the page, we can see that the data we've just added is still there:
+![Data is still there](/img/fourth.png)
 
 <br />
 
 Now: how can we bring this to JavaScript?
 
-Well, it's pretty simple, but you need to know something very important first: **Local Storage can only store data as a _`string`_**, so we need to stringify it.
+Well, it's pretty simple, but you need to know something very important first: **Local Storage can only store data as a _`string`_**, so we need to stringify it first.
 
-The way JavaScript lets us do it is via the `JSON object methods`:
+The way JavaScript lets us do it is via the global `JSON` object methods:
 
 - `JSON.stringify()` accepts a valid JavaScript value (object, array, number, etc...) and returns a stringified copy:
 
@@ -59,24 +59,76 @@ The way JavaScript lets us do it is via the `JSON object methods`:
 JSON.stringify({
   name: "foo",
   age: 23
-}); // returns a string
+}); // returns "{name:"foo",age:23}"
 ```
 
 - `JSON.parse()` accepts a valid **stringified** JavaScript
-  value and returns a valid JavaScript value:
+  value and returns a its equivalent JavaScript value:
 
 ```javascript
-JSON.parse("{name:'foo',age:23}"); // returns a JavaScript object
+JSON.parse("{name:'foo',age:23}"); // returns {
+//   name: "foo",
+//   age: 23
+// }
 ```
 
-With this in mind, we are ready to interact with the Local Storage programmatically:
+<br />
+
+With this in mind, we are ready to interact with the Local Storage via JavaScript.
 
 The Local Storage API provides us the following methods:
 
-- `localStorage.setItem(<key>, <stringified-data>)` // to set
+```javascript
+localStorage.setItem(<key>, <stringified-data>) // to save data
 
-- `localStorage.clear()`
+localStorage.getItem(<key>) // to get saved data by key
 
-- `localStorage.clear()`
+localStorage.key(<index>) // to get saved data by index
 
-- `localStorage.clear()`
+localStorage.removeItem(<key>) // to remove saved data
+
+localStorage.clear() // to empty storage
+```
+
+<br />
+
+Take a look at the following example:
+
+HTML:
+
+```html
+<select name="language" id="language-select">
+  <option value="en">English</option>
+  <option value="es">Español</option>
+  <option value="pt">Português</option>
+  ...
+</select>
+```
+
+We create a _select_ element with language options and we add it the "language-select" _id_.
+
+<br />
+
+JavaScript:
+
+```javascript
+// we listen to "change" events in the document
+document.addEventListener("change", e => {
+  // we check if it comes from our select element
+  if (e.target.matches("#language-select")) {
+    // we stringify the selected value
+    const stringifiedValue = JSON.stringify(e.target.value);
+
+    // we save it in the Local Storage
+    localStorage.setItem("language", stringifiedValue);
+  }
+});
+```
+
+With JavaScript, we add an _event listener_ for the entire document\*.
+
+> \* When i work with vanila JavaScript, i add a single event listener for each event i need to handle. I do it in order to prevent _event propagation_ and reduce the number of event listeners in the app.
+
+Once we've added our event listener, we check if the event target (the element that has triggered the event) is our _select_. If so, we get its value (in our example it would be _en_, _es_ or _pt_) and save it in the Local Storage.
+
+Note that we are converting our value to a string before saving it.
