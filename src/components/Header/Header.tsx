@@ -19,6 +19,12 @@ const LINKS = [
   }
 ];
 
+const toggleMenu = () => {
+  document
+    .getElementById("open-menu-btn")
+    ?.classList.toggle(styles.menu_opened);
+};
+
 export function Header() {
   return (
     <header className={styles.header}>
@@ -29,9 +35,10 @@ export function Header() {
         width={390}
         height={187}
       />
-      <nav className={styles.nav_bar}>
+      <nav id="open-menu-btn" className={styles.nav_bar}>
         {LINKS.map(({ href, title, target }) => (
           <Link
+            onClick={toggleMenu}
             className={styles.nav_bar__link}
             key={nanoid()}
             href={href}
@@ -41,6 +48,11 @@ export function Header() {
           </Link>
         ))}
       </nav>
+      <button onClick={toggleMenu} className={styles.menu_btn}>
+        <span className={styles.menu_btn__stick}></span>
+        <span className={styles.menu_btn__stick}></span>
+        <span className={styles.menu_btn__stick}></span>
+      </button>
     </header>
   );
 }
