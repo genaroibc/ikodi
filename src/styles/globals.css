@@ -51,8 +51,11 @@ img {
 
 hr {
   margin: 2rem auto;
-  max-width: 800px;
   opacity: 0.8;
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 /* UTILITIY CLASSES */
@@ -97,4 +100,8 @@ hr {
   opacity: 0.8;
 
   background-color: #fff;
+}
+
+.max-width-800 {
+  max-width: 800px;
 }

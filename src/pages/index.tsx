@@ -12,7 +12,7 @@ export default function Home({ posts }: Props) {
     <>
       <Hero />
 
-      <hr />
+      <hr className="max-width-800" />
 
       <PostCardList posts={posts} />
     </>
