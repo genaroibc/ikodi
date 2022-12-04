@@ -1,0 +1,16 @@
+.article {
+  max-width: 1000px;
+
+  line-height: 1.7;
+  margin: 1rem auto;
+  padding: 1.5rem;
+
+  color: #eee;
+  font-size: 1.2rem;
+}
+
+.article img {
+  max-width: 100%;
+  margin: 2rem auto;
+  display: block;
+}

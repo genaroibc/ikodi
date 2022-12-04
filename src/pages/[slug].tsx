@@ -1,10 +1,9 @@
-import { MDXRemote } from "next-mdx-remote";
-import MDXComponents from "../components/MDXComponents/MDXComponents";
+import { Article } from "../components/Article/Article";
 import { getPostBySlug, getPostsSlugs } from "../lib/mdx";
 import { SerializedPost } from "../types";
 
-export default function Post({ frontmatter, source }: SerializedPost) {
-  return <MDXRemote {...source} components={MDXComponents} />;
+export default function Post(post: SerializedPost) {
+  return <Article {...post} />;
 }
 
 export async function getStaticProps({ params = { slug: "" } }) {
