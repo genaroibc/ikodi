@@ -21,6 +21,11 @@
   font-size: 1.5rem;
 }
 
+.hero_description__name {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     margin-top: 1rem;

@@ -26,7 +26,7 @@ export function Hero() {
       <p className={styles.hero_description}>
         Welcome 👋. I am{" "}
         <Tooltip items={CONTACT_ITEMS}>
-          <span className="text-bold">Genaro Bonavita</span>
+          <span className={styles.hero_description__name}>Genaro Bonavita</span>
         </Tooltip>
         , Frontend Developer.
       </p>
