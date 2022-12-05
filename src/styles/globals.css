@@ -9,6 +9,13 @@
   --secondary-color: #1f4287;
   --terciary-color: #278ea5;
   --complement-color: #21e6c1;
+
+  --opaque-white: #fffc;
+
+  --transition-duration-and-timing: 0.25s ease-out;
+
+  --text-hover-transition: var(--transition-duration-and-timing) color;
+  --box-shadow-transition: var(--transition-duration-and-timing) box-shadow;
 }
 
 html,

@@ -16,9 +16,10 @@
 
   padding: 0.3rem 1rem;
 
-  transition: 0.3s color linear;
+  transition: var(--text-hover-transition);
+
   background-color: var(--secondary-color);
-  color: #fffa;
+  color: var(--opaque-white);
 
   border-radius: 10px 10px 0 0;
 }

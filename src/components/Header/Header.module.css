@@ -31,6 +31,12 @@
 
 .nav_bar__link {
   font-size: 1.3rem;
+  transition: var(--text-hover-transition);
+  color: var(--opaque-white);
+}
+
+.nav_bar__link:hover {
+  color: #fff;
 }
 
 .menu_btn {
