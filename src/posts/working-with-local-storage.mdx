@@ -17,12 +17,16 @@ As you can imagine, it is a very convenient way to personalize user experience.
 
 The way Local Storage stores data is similar to an ordinary JavaScript object, that is a set of _key_ and _value_ pairs:
 
+<Code language="JavaScript">
+
 ```javascript
 const object = {
   firstKey: "hello",
   secondKey: "world"
 };
 ```
+
+</Code>
 
 <br />
 
@@ -55,6 +59,8 @@ The way JavaScript lets us do it is via the global `JSON` object methods:
 
 - `JSON.stringify()` accepts a valid JavaScript value (object, array, number, etc...) and returns a stringified copy:
 
+<Code language="JavaScript">
+
 ```javascript
 JSON.stringify({
   name: "foo",
@@ -62,8 +68,12 @@ JSON.stringify({
 }); // returns "{name:"foo",age:23}"
 ```
 
+</Code>
+
 - `JSON.parse()` accepts a valid **stringified** JavaScript
   value and returns its equivalent JavaScript value:
+
+<Code language="JavaScript">
 
 ```javascript
 JSON.parse("{name:'foo',age:23}"); // returns {
@@ -72,11 +82,15 @@ JSON.parse("{name:'foo',age:23}"); // returns {
 // }
 ```
 
+</Code>
+
 <br />
 
 With this in mind, we are ready to interact with the Local Storage via JavaScript.
 
 The Local Storage API provides us the following methods:
+
+<Code language="JavaScript">
 
 ```javascript
 localStorage.setItem(<key>, <stringified-data>) // to save data
@@ -90,13 +104,15 @@ localStorage.removeItem(<key>) // to remove saved data
 localStorage.clear() // to empty storage
 ```
 
+</Code>
+
 <br />
 
 So, let's imagine a real-world example: We need to remember the user's preferred language every time they enter the app.
 
 For this example, i'm going to use vanila JS, but it is easily extrapolated to any library/framework.
 
-> HTML:
+<Code language="HTML">
 
 ```html
 <select name="language" id="language-select">
@@ -107,11 +123,13 @@ For this example, i'm going to use vanila JS, but it is easily extrapolated to a
 </select>
 ```
 
+</Code>
+
 We create a _select_ element with language options and we add it the _language-select_ id.
 
 <br />
 
-> JavaScript:
+<Code language="JavaScript">
 
 ```javascript
 // we listen for "change" events in the document
@@ -127,6 +145,8 @@ document.addEventListener("change", event => {
 });
 ```
 
+</Code>
+
 With JavaScript, we add an _event listener_ for the entire document\*.
 
 > \* When i work with vanila JavaScript, i add only one event listener for each event i need to handle. I do it in order to prevent _event propagation_ and reduce the number of event listeners in the app.
@@ -140,7 +160,7 @@ Once we've added our event listener, we check if the event target (the element t
 
 Now, we can do the following:
 
-> JavaScript
+<Code language="JavaScript">
 
 ```javascript
 // we listen for "change" events in the document
@@ -153,3 +173,5 @@ document.addEventListener("DOMContentLoaded", event => {
   // and we save it in the Local Storage
 });
 ```
+
+</Code>

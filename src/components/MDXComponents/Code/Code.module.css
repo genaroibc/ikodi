@@ -1,0 +1,24 @@
+.code_container {
+  margin: 2rem auto;
+}
+
+.code_container pre {
+  margin: 0;
+}
+
+.code_container:hover .code_container__language {
+  color: #fff;
+}
+
+.code_container__language {
+  display: block;
+  width: max-content;
+
+  padding: 0.3rem 1rem;
+
+  transition: 0.3s color linear;
+  background-color: var(--secondary-color);
+  color: #fffa;
+
+  border-radius: 10px 10px 0 0;
+}
