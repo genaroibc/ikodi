@@ -4,7 +4,7 @@ import styles from "./Note.module.css";
 type NoteIcon = "info" | "warning";
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
   type: NoteIcon;
 };
 

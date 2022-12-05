@@ -10,7 +10,12 @@
   border-radius: 5px;
   background-color: var(--secondary-color);
 
-  color: #fffd;
+  color: #fffa;
+  transition: 0.3s color ease-in-out;
+}
+
+.note:hover {
+  color: #fff;
 }
 
 .note__icon {
