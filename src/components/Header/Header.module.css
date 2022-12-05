@@ -3,6 +3,7 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   position: sticky;
   top: 0;
@@ -102,5 +103,14 @@
 
   .menu_btn {
     display: flex;
+  }
+
+  .logo {
+    width: auto;
+    max-height: 50px;
+  }
+
+  .header {
+    padding: 0.5rem 0.8rem;
   }
 }
