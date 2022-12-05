@@ -1,0 +1,22 @@
+.note {
+  position: relative;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem;
+  margin: 2rem auto 4rem;
+
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+
+  color: #fffd;
+}
+
+.note__icon {
+  margin: 1rem 0 !important;
+  padding: 0;
+  position: relative;
+
+  align-self: center;
+}
