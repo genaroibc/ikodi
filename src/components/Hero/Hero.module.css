@@ -20,3 +20,10 @@
 .hero_description {
   font-size: 1.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .hero {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
