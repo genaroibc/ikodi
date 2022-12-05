@@ -5,6 +5,7 @@ export type Post = {
   date: string;
   content: string;
   slug: string;
+  reading_time: string;
 };
 
 export type SerializedPost = {
