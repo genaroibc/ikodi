@@ -63,7 +63,7 @@ JSON.stringify({
 ```
 
 - `JSON.parse()` accepts a valid **stringified** JavaScript
-  value and returns a its equivalent JavaScript value:
+  value and returns its equivalent JavaScript value:
 
 ```javascript
 JSON.parse("{name:'foo',age:23}"); // returns {
@@ -92,9 +92,11 @@ localStorage.clear() // to empty storage
 
 <br />
 
-Take a look at the following example:
+So, let's imagine a real-world example: We need to remember the user's preferred language every time they enter the app.
 
-HTML:
+For this example, i'm going to use vanila JS, but it is easily extrapolated to any library/framework.
+
+> HTML:
 
 ```html
 <select name="language" id="language-select">
@@ -105,30 +107,49 @@ HTML:
 </select>
 ```
 
-We create a _select_ element with language options and we add it the "language-select" _id_.
+We create a _select_ element with language options and we add it the _language-select_ id.
 
 <br />
 
-JavaScript:
+> JavaScript:
 
 ```javascript
-// we listen to "change" events in the document
-document.addEventListener("change", e => {
-  // we check if it comes from our select element
-  if (e.target.matches("#language-select")) {
-    // we stringify the selected value
-    const stringifiedValue = JSON.stringify(e.target.value);
+// we listen for "change" events in the document
+document.addEventListener("change", event => {
+  // we check if the event comes from our select element
+  if (event.target.matches("#language-select")) {
+    // if so, we get the selected value
+    const selectedLanguage = event.target.value;
 
-    // we save it in the Local Storage
-    localStorage.setItem("language", stringifiedValue);
+    // and we save it in the Local Storage
+    localStorage.setItem("language", selectedLanguage);
   }
 });
 ```
 
 With JavaScript, we add an _event listener_ for the entire document\*.
 
-> \* When i work with vanila JavaScript, i add a single event listener for each event i need to handle. I do it in order to prevent _event propagation_ and reduce the number of event listeners in the app.
+> \* When i work with vanila JavaScript, i add only one event listener for each event i need to handle. I do it in order to prevent _event propagation_ and reduce the number of event listeners in the app.
 
-Once we've added our event listener, we check if the event target (the element that has triggered the event) is our _select_. If so, we get its value (in our example it would be _en_, _es_ or _pt_) and save it in the Local Storage.
+Once we've added our event listener, we check if the event target (the element that fired the event) is our _select_. If so, we get its value (in our example it would be _en_, _es_ or _pt_) and save it in the Local Storage.
 
-Note that we are converting our value to a string before saving it.
+<Note type="info">
+  Note that we are not converting our value to a string because it is already a
+  string.
+</Note>
+
+Now, we can do the following:
+
+> JavaScript
+
+```javascript
+// we listen for "change" events in the document
+document.addEventListener("DOMContentLoaded", event => {
+  // we check if the event comes from our select element
+  // if so, we stringify the selected value
+  const stringifiedValue = JSON.stringify(event.target.value);
+
+  const localStorage.getItem("language");
+  // and we save it in the Local Storage
+});
+```
