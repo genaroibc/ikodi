@@ -1,5 +1,10 @@
+.link {
+  text-decoration: none !important;
+}
+
 .post_card {
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +13,8 @@
 
   background-color: var(--secondary-color);
   border-radius: 5px;
+
+  transition: var(--box-shadow-transition);
 }
 
 .post_card img {
@@ -23,6 +30,8 @@
 :is(.post_card__date, .post_card__reading_time) {
   margin: 0.5rem 0;
 
+  width: max-content;
+
   opacity: 0.7;
   transition: opacity var(--transition-duration-and-timing);
 }
@@ -31,20 +40,23 @@
   opacity: 1;
 }
 
-.post_card__link {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-
-  padding: 0.5rem 1rem;
-
-  background-color: var(--terciary-color);
-  color: #fff;
-  border-radius: 5px;
-
-  transition: var(--box-shadow-transition);
+.post_card:hover {
+  box-shadow: 0px 5px 5px 2px #0004;
 }
 
-.post_card__link:hover {
-  box-shadow: 0px 5px 5px 2px #0004;
+.post_card__arrow {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  opacity: 0.7;
+
+  transition: opacity var(--transition-duration-and-timing),
+    transform var(--transition-duration-and-timing);
+}
+
+.link:hover .post_card__arrow {
+  opacity: 1;
+
+  transform: translateX(10px);
 }
