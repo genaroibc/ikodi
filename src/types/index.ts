@@ -8,7 +8,6 @@ export type Post = {
   reading_time: string;
 };
 export type PostMetadata = {
-  slug: string;
   date: string;
   reading_time: string;
   title: string;

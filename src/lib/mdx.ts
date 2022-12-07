@@ -2,7 +2,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
-import { SerializedPost } from "../types";
+import { PostMetadata, SerializedPost } from "../types";
 import rehypeHighlight from "rehype-highlight";
 
 const root = process.cwd();
@@ -47,8 +47,7 @@ export const getPostBySlug = async (slug: string): Promise<SerializedPost> => {
   return {
     source,
     frontmatter: {
-      slug,
-      ...metadata
+      ...(metadata as PostMetadata)
     }
   };
 };
