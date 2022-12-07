@@ -31,6 +31,7 @@ export function SemanticHead() {
         name="description"
         content="IKodi is a blog about web development and programming were you can find articles about many different tools, technologies and web concepts."
       />
+      <base target="_blank" />
       <title>Ikodi</title>
     </Head>
   );
