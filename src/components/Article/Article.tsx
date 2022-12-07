@@ -4,10 +4,12 @@ import Link from "next/link";
 import { SerializedPost } from "../../types";
 import MDXComponents from "../MDXComponents/MDXComponents";
 import styles from "./Article.module.css";
+import { Metadata } from "./Metadata/Metadata";
 
 export function Article({ frontmatter, source }: SerializedPost) {
   return (
     <>
+      <Metadata {...frontmatter} />
       <article className={styles.article}>
         <MDXRemote {...source} components={MDXComponents} />
       </article>
