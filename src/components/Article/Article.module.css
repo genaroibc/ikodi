@@ -14,3 +14,28 @@
   margin: 2rem auto;
   display: block;
 }
+
+.back_to_home_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: max-content;
+
+  margin-left: 2rem;
+  padding: 0.5rem;
+
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  transition: var(--box-shadow-transition);
+}
+
+.back_to_home_link:hover {
+  box-shadow: 0px 5px 5px 2px #0004;
+}
+
+.back_to_home_link img {
+  margin: 0 0.5rem;
+
+  transform: rotate(-180deg);
+}
