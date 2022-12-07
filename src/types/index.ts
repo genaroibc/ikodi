@@ -7,13 +7,17 @@ export type Post = {
   slug: string;
   reading_time: string;
 };
+export type PostMetadata = {
+  slug: string;
+  date: string;
+  reading_time: string;
+  title: string;
+};
 
 export type SerializedPost = {
   source: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
-  frontmatter: {
-    slug: string;
-  };
+  frontmatter: PostMetadata;
 };
