@@ -6,15 +6,19 @@ reading_time: "3min"
 
 # Working with the Local Storage API in JavaScript
 
-_Local Storage_ is an **browser API** that let us **persist information** in the
+_Local Storage_ is a **browser API** that let us **persist information** in the
 browser storage, allowing us to save useful information about _user
 preferences_, such as theme, language, etc...
 
 As you can imagine, it is a very convenient way to personalize user experience.
 
+<Note type="warning">
+  Due it is a browser API, you can't use it in runtimes like Node, Deno, Bun,
+  etc.., though there are several alternatives for the server.
+</Note>
 ---
 
-## Getting Started
+## Main Concepts
 
 The way Local Storage stores data is similar to an ordinary JavaScript object, that is a set of _key_ and _value_ pairs:
 
@@ -107,7 +111,9 @@ localStorage.clear() // to empty storage
 
 </Code>
 
-<br />
+---
+
+## A Real Use Case
 
 So, let's imagine a real-world example: We need to remember the user's preferred language every time they enter the app.
 
@@ -148,13 +154,17 @@ document.addEventListener("change", event => {
 
 </Code>
 
-With JavaScript, we add an _event listener_ for the entire document\*.
-
-> \* When i work with vanila JavaScript, i add only one event listener for each event i need to handle. I do it in order to prevent _event propagation_ and reduce the number of event listeners in the app.
-
-Once we've added our event listener, we check if the event target (the element that fired the event) is our _select_. If so, we get its value (in our example it would be _en_, _es_ or _pt_) and save it in the Local Storage.
+With JavaScript, we add an _event listener_ for the entire document.
 
 <Note type="info">
+  When I work with vanila JavaScript, I add only one event listener for each
+  event I need to handle, in order to prevent _event propagation_ and reduce the
+  number of event listeners in the app.
+</Note>
+
+Once we've added our _change_ event listener, we check if the event target (the element that fired the event) is our _select_. If so, we get its value (in our example it would be _en_, _es_ or _pt_) and save it in the Local Storage.
+
+<Note type="warning">
   Note that we are not converting our value to a string because it is already a
   string.
 </Note>
@@ -164,15 +174,58 @@ Now, we can do the following:
 <Code language="JavaScript">
 
 ```javascript
-// we listen for "change" events in the document
-document.addEventListener("DOMContentLoaded", event => {
-  // we check if the event comes from our select element
-  // if so, we stringify the selected value
-  const stringifiedValue = JSON.stringify(event.target.value);
+document.addEventListener("DOMContentLoaded", () => {
+  const userLanguage = localStorage.getItem("language");
 
-  const localStorage.getItem("language");
-  // and we save it in the Local Storage
+  setLanguage(userLanguage);
+  // ...
 });
 ```
 
 </Code>
+
+When the page has loaded and the DOM is ready, we get the saved language from Local Storage. From here, we can use it for whatever we need.
+
+Also, a good feature is that users can reset their language preference, and for this we would need to remove it from Local Storage:
+
+<Code language="JavaScript">
+```javascript
+  function resetLanguage() {
+    localStorage.removeItem("language");
+  }
+```
+</Code>
+
+And, finally, in an unlikely scenario, we could completly empty the Local Storage:
+
+<Code language="JavaScript">
+
+```javascript
+localStorage.clear();
+```
+
+</Code>
+
+---
+
+## Wrapping Up
+
+Through this tutorial, we've learned how to interact with a very useful API and its main concepts, in addition to a real use case.
+
+If you wish to delve into topics like performance, security or best practices for this API, you can check out the articles below:
+
+- Performance:
+
+  - [Measuring Local Storage performance](https://www.stevesouders.com/blog/2014/02/11/measuring-localstorage-performance/)
+  - [How fast is vanilla JS Local Storage?](https://gomakethings.com/how-fast-is-vanilla-js-localstorage/)
+
+- Security:
+
+  - [Is Local Storage safe to use?](https://snyk.io/blog/is-localstorage-safe-to-use/)
+  - [Local Storage security limitations](https://vhudyma-blog.eu/the-limitations-and-security-of-localstorage-in-javascript/)
+
+- Best practices:
+  - [Local Storage is cool but be mindful how you use it](https://medium.com/geekculture/localstorage-is-cool-but-be-mindful-how-you-use-it-2fedf02d37e4)
+  - [Please stop using Local Storage](https://dev.to/rdegges/please-stop-using-local-storage-1i04)
+
+Thanks for reading!
