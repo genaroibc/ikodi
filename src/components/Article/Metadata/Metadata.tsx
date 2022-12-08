@@ -6,18 +6,13 @@ export function Metadata({ reading_time, date }: PostMetadata) {
   return (
     <div className={styles.metadata_container}>
       <span>
-        <Image
-          src="/svg/clock-regular.svg"
-          alt="clock icon"
-          width={20}
-          height={20}
-        />
+        <Image src="/svg/clock.svg" alt="clock icon" width={20} height={20} />
         {reading_time}
       </span>
 
       <span>
         <Image
-          src="/svg/calendar-regular.svg"
+          src="/svg/calendar.svg"
           alt="clock icon"
           width={20}
           height={20}

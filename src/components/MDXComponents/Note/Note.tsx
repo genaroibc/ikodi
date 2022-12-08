@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./Note.module.css";
 
-type NoteIcon = "info" | "warning";
+type NoteIcon = "info" | "warn";
 
 type Props = {
   children: React.ReactNode;

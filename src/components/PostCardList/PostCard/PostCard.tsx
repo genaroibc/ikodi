@@ -10,7 +10,7 @@ export function PostCard({ date, title, slug, reading_time }: Post) {
         <h3 className={styles.post_card__title}>{title}</h3>
         <h4 className={styles.post_card__date}>
           <Image
-            src="/svg/calendar-regular.svg"
+            src="/svg/calendar.svg"
             alt="calendar icon"
             width={20}
             height={20}
@@ -18,12 +18,7 @@ export function PostCard({ date, title, slug, reading_time }: Post) {
           {date}
         </h4>
         <h4 className={styles.post_card__reading_time}>
-          <Image
-            src="/svg/clock-regular.svg"
-            alt="clock icon"
-            width={20}
-            height={20}
-          />
+          <Image src="/svg/clock.svg" alt="clock icon" width={20} height={20} />
 
           {reading_time}
         </h4>
