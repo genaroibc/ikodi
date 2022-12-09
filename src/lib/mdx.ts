@@ -2,7 +2,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
-import { PostMetadata, SerializedPost } from "../types";
+import { PostMetadata, SerializedPost } from "types";
 import rehypeHighlight from "rehype-highlight";
 
 const root = process.cwd();

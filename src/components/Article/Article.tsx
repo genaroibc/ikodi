@@ -1,8 +1,8 @@
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
-import { SerializedPost } from "../../types";
-import MDXComponents from "../MDXComponents/MDXComponents";
+import { SerializedPost } from "types";
+import MDXComponents from "components/MDXComponents/MDXComponents";
 import styles from "./Article.module.css";
 import { Metadata } from "./Metadata/Metadata";
 

@@ -1,7 +1,7 @@
-import { Hero } from "../components/Hero/Hero";
-import { PostCardList } from "../components/PostCardList/PostCardList";
-import { getAllPostsMetadata } from "../lib/mdx";
-import { Post } from "../types";
+import { Hero } from "components/Hero/Hero";
+import { PostCardList } from "components/PostCardList/PostCardList";
+import { getAllPostsMetadata } from "lib/mdx";
+import { Post } from "types";
 
 type Props = {
   posts: Array<Post>;

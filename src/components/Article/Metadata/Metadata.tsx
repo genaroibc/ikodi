@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PostMetadata } from "../../../types";
+import { PostMetadata } from "types";
 import styles from "./Metadata.module.css";
 
 export function Metadata({ reading_time, date }: PostMetadata) {

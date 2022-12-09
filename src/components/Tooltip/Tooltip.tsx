@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import styles from "./Tooltip.module.css";
-import { ContactItem } from "../ContactItem/ContactItem";
+import { ContactItem } from "components/ContactItem/ContactItem";
 
 type Props = {
   items: Array<ContactItem>;

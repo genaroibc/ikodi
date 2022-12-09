@@ -1,4 +1,4 @@
-import { ContactItem } from "../ContactItem/ContactItem";
+import { ContactItem } from "components/ContactItem/ContactItem";
 import { ContactBar } from "./ContactBar/ContactBar";
 import styles from "./Footer.module.css";
 

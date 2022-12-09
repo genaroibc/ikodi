@@ -1,6 +1,6 @@
-import { Article } from "../components/Article/Article";
-import { getPostBySlug, getPostsSlugs } from "../lib/mdx";
-import { SerializedPost } from "../types";
+import { Article } from "components/Article/Article";
+import { getPostBySlug, getPostsSlugs } from "lib/mdx";
+import { SerializedPost } from "types";
 
 export default function Post(post: SerializedPost) {
   return <Article {...post} />;

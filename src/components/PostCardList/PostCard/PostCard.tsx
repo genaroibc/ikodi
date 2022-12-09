@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Post } from "../../../types";
+import { Post } from "types";
 import styles from "./PostCard.module.css";
 
 export function PostCard({ date, title, slug, reading_time }: Post) {

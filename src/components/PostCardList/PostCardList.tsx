@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Post } from "../../types";
+import { Post } from "types";
 import { PostCard } from "./PostCard/PostCard";
 import styles from "./PostCardList.module.css";
 
