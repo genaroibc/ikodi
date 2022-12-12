@@ -1,10 +1,10 @@
 ---
-title: "Parameters Desestructuring: a modern and elegant approach"
+title: "Parameters Destructuring: a modern and elegant approach"
 date: "2022-12-07"
 reading_time: "30sec"
 ---
 
-# Parameters Desestructuring: a modern and elegant approach
+# Parameters Destructuring: a modern and elegant approach
 
 ## Introduction
 
@@ -13,9 +13,9 @@ When we are developing complex applications, a typical problem we may face is th
 <Code language="JavaScript">
 ```javascript
 
-updateSomeState(oldState, newState, true, 0) // is this even right 🤔?
+updateSomeState(oldState, newState, true, 0) // is this even right 🤔 ?
 
-```
+````
 
 </Code>
 
@@ -23,6 +23,126 @@ updateSomeState(oldState, newState, true, 0) // is this even right 🤔?
 <Note type="warn">
   At this point you can think that we aren't separating logic properly, and you may be right, but it's for example's sake.
 </Note>
+
+A good approach to solve this problem is parameters destructuring (or named parameters). But first, let's review the destructuring syntax.
+
+### Basic destructuring
+
+<Code language="JavaScript">
+
+```javascript
+const IKodi = {
+  author: "Genaro Bonavita",
+  topics: ["programming", "JavaScript", "web development"]
+};
+
+
+const { author, topics } = IKodi; // creates two constants called 'author' and 'topics'
+
+console.log(author); // "Genaro Bonavita"
+console.log(topics[2]); // "web development"
+````
+
+</Code>
+
+<br />
+
+### Default values
+
+If the properties we are looking for are not defined, the variables (or constants) are `undefined`, but we can prevent this by establishing a default value:
+
+<Code language="JavaScript">
+
+```javascript
+const { author = "Anonymous", topics = [] } = IKodi;
+
+console.log(author); // if not defined, it'll be assigned "Anonymous"
+console.log(topics[2]); // if not defined, it'll be assigned []
 ```
 
+</Code>
+
+<Note type="warn">
+  The default assignment only applies if the property is `undefined`, meaning
+  that if it's `null` (or any other _falsy_ value) the created variable will be
+  assigned that _no-undefined_ value.
+</Note>
+
+### Renaming destructured properties
+
+Usually (for example when handling APIs responses), a property has the same name as one of our variables, or it's not descriptive enough (e.g. "data" or "response") and we want to rename it. We can rename the destructured property, so the created variable has a different name than the original property:
+
+<Code language="JavaScript">
+
+```javascript
+const { author: postAuthor, topics: postTopics } = IKodi;
+
+console.log(postAuthor); // all OK 👍
+console.log(postTopics[2]); // all OK 👍
+
+console.log(author); // ReferenceError ⚠️ because doesn't exists
+console.log(topics[2]); // ReferenceError ⚠️ because doesn't exists
+```
+
+</Code>
+
+### Combined syntax
+
+An example combining destructuring, default values and renaming:
+
+<Code language="JavaScript">
+
+```javascript
+const { author: postAuthor = "Anonymus", topics: postTopics = [] } = IKodi;
+
+console.log(postAuthor); // all OK 👍
+console.log(postTopics[2]); // all OK 👍
+
+console.log(author); // ReferenceError ⚠️ because doesn't exists
+console.log(topics[2]); // ReferenceError ⚠️ because doesn't exists
+```
+
+</Code>
+
+First we put the original property name, then the new name, and finally the default value.
+
+## Named Parameters
+
+All these destructuring concepts apply as well to function parameters.
+
+<Code language="JavaScript">
+
+```javascript
+// with normal parameters
+function removeRepeatedItems(items) {
+  return Array.from(new Set(items));
+}
+
+// with named parameters
+function removeRepeatedItems({ items = [] }) {
+  return Array.from(new Set(items));
+}
+```
+
+</Code>
+
+The second function takes an object as argument and desestructures the _items_ property.
+
+The `removeRepeatedItems` function takes an _object_ as argument and **extracts** the _items_ property.
+
 ### To be continue...
+
+So, going back with the first example in this article, we can do the following:
+
+<Code language="JavaScript">
+
+```javascript
+updateSomeState({ oldState, newState, priority: true, destroyedNodes: 0 }); // this is more descriptive now
+```
+
+</Code>
+
+<Note type="warn">
+  If you are using the modern parameter syntax explained above, you aren't able
+  to use the "use strict" mode inside the function body.
+</Note>
