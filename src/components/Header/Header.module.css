@@ -32,11 +32,13 @@
 
 .nav_bar__link {
   font-size: 1.3rem;
-  transition: var(--text-hover-transition);
+  transition: var(--text-hover-transition),
+    text-shadow var(--transition-duration-and-timing);
   color: var(--opaque-white);
 }
 
 .nav_bar__link:hover {
+  text-shadow: 0px 0px 10px var(--complement-color);
   color: #fff;
 }
 
