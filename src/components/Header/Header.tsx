@@ -9,8 +9,9 @@ const LINKS = [
     href: "/"
   },
   {
-    title: "about",
-    href: "/"
+    title: "github",
+    href: "https://github.com/GenaroIBC",
+    target: "_blank"
   },
   {
     title: "portfolio",
