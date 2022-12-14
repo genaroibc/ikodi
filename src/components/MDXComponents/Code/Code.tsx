@@ -10,7 +10,9 @@ type Props = {
 export function Code({ children, language }: Props) {
   return (
     <div className={styles.code_container}>
-      <span className={styles.code_container__language}>{language}</span>
+      <span className={styles.code_container__language}>
+        {language || "unknown"}
+      </span>
       {children}
     </div>
   );
