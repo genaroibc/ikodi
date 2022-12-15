@@ -68,6 +68,18 @@ h1 {
 section {
   padding: 1.5rem;
 }
+
+p code {
+  padding: 0.2rem;
+
+  border-radius: 5px;
+
+  background-color: var(--secondary-color);
+}
+
+div > p code {
+  background-color: var(--terciary-color);
+}
 /* UTILITIY CLASSES */
 
 .text-highlighted {
