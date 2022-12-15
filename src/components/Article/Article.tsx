@@ -13,6 +13,9 @@ export function Article({ frontmatter, source }: SerializedPost) {
       <article className={styles.article}>
         <MDXRemote {...source} components={MDXComponents} />
       </article>
+
+      <p className={styles.thanks}>Thanks for reading!!</p>
+
       <Link className={styles.back_to_home_link} href="/">
         <Image
           src="/svg/arrow-right.svg"

@@ -15,6 +15,16 @@
   display: block;
 }
 
+.thanks {
+  margin: 2rem auto;
+
+  position: relative;
+
+  font-size: 1.3rem;
+
+  text-align: center;
+}
+
 .back_to_home_link {
   display: flex;
   justify-content: center;
