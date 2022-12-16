@@ -1,30 +1,30 @@
 ---
-title: "Parameters Destructuring: a modern and elegant approach"
+title: "Named Parameters: a modern and elegant approach"
 date: "2022-12-07"
-reading_time: "30sec"
+reading_time: "2min"
 ---
 
-# Parameters Destructuring: a modern and elegant approach
+# Named parameters: a modern and elegant approach
 
 ## Introduction
 
-When we are developing complex applications, a typical problem we may face is that we call a function or method that has a lot of parameters, and we need to remember what is the right order:
+When we are developing complex applications, a typical problem we may face is that we call a function or method that has many parameters, and we need to remember what the correct order is:
 
 <Code language="JavaScript">
 ```javascript
 
-updateSomeState(oldState, newState, true, 0) // is this even right 🤔 ?
+updateSomeState(oldState, newState, true, 0); // is this even right 🤔 ?
 
 ````
 
 </Code>
 
 
-<Note type="warn">
-  At this point you can think that we aren't separating logic properly, and you may be right, but it's for example's sake.
+<Note type="info">
+  At this point you may think that we aren't separating the logic properly, and you may be right, but it's for example's sake.
 </Note>
 
-A good approach to solve this problem is parameters destructuring (or named parameters). But first, let's review the destructuring syntax.
+A good approach to solving this problem is parameters destructuring (or named parameters). But first, let's review the destructuring syntax.
 
 ### Basic destructuring
 
@@ -49,15 +49,15 @@ console.log(topics[2]); // "web development"
 
 ### Default values
 
-If the properties we are looking for are not defined, the variables (or constants) are `undefined`, but we can prevent this by establishing a default value:
+If the properties we are looking for are not defined, the variables (or constants) are `undefined`, but we can avoid this by setting a default value:
 
 <Code language="JavaScript">
 
 ```javascript
 const { author = "Anonymous", topics = [] } = IKodi;
 
-console.log(author); // if not defined, it'll be assigned "Anonymous"
-console.log(topics[2]); // if not defined, it'll be assigned []
+console.log(author); // if not defined, it will be assigned "Anonymous"
+console.log(topics[2]); // if not defined, it will be assigned []
 ```
 
 </Code>
@@ -70,7 +70,7 @@ console.log(topics[2]); // if not defined, it'll be assigned []
 
 ### Renaming destructured properties
 
-Usually (for example when handling APIs responses), a property has the same name as one of our variables, or it's not descriptive enough (e.g. "data" or "response") and we want to rename it. We can rename the destructured property, so the created variable has a different name than the original property:
+Usually (for example when handling APIs responses), a property has the same name as one of our variables, or it's not descriptive enough (e.g. "data" or "response") and we want to rename it. We can rename the destructured property like so:
 
 <Code language="JavaScript">
 
@@ -88,27 +88,29 @@ console.log(topics[2]); // ReferenceError ⚠️ because doesn't exists
 
 ### Combined syntax
 
-An example combining destructuring, default values and renaming:
+An example combining destructuring, default values and properties renaming:
 
 <Code language="JavaScript">
 
 ```javascript
 const { author: postAuthor = "Anonymus", topics: postTopics = [] } = IKodi;
 
-console.log(postAuthor); // all OK 👍
-console.log(postTopics[2]); // all OK 👍
-
-console.log(author); // ReferenceError ⚠️ because doesn't exists
-console.log(topics[2]); // ReferenceError ⚠️ because doesn't exists
+console.log(postAuthor); // "Genaro Bonavita", but "Anonymus" if not defined
+console.log(postTopics[2]); // "web development", but [] if not defined
 ```
 
 </Code>
 
-First we put the original property name, then the new name, and finally the default value.
+First we put the name of the original property, then the new name, and finally the default value.
 
 ## Named Parameters
 
-All these destructuring concepts apply as well to function parameters.
+All these destructuring concepts apply to function parameters as well.
+
+<Note type="warn">
+  If you are using the modern parameter syntax explained above, you won't be
+  able to use the _use strict_ mode inside the function body.
+</Note>
 
 <Code language="JavaScript">
 
@@ -126,11 +128,7 @@ function removeRepeatedItems({ items = [] }) {
 
 </Code>
 
-The second function takes an object as argument and desestructures the _items_ property.
-
-The `removeRepeatedItems` function takes an _object_ as argument and **extracts** the _items_ property.
-
-### To be continue...
+The second `removeRepeatedItems` function takes an _object_ as argument and **destructures** the _items_ property.
 
 So, going back with the first example in this article, we can do the following:
 
@@ -142,7 +140,10 @@ updateSomeState({ oldState, newState, priority: true, destroyedNodes: 0 }); // t
 
 </Code>
 
-<Note type="warn">
-  If you are using the modern parameter syntax explained above, you aren't able
-  to use the "use strict" mode inside the function body.
-</Note>
+## Wrapping Up
+
+In this article, we learned the _destructuring syntax_, and combined it with named parameters, in order to have a better control over our code.
+
+As you can see, it can be a useful approach when working on a large or complex codebase, because we're taking advantage of a native feature to reduce complexity, while improving the readability and maintainability of our code.
+
+However, it is in your hands to decide if using it can help more than hinder. In the end, you have one more tool at your disposal.
