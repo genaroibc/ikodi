@@ -10,7 +10,7 @@ type Props = {
 export function PostCardList({ posts }: Props) {
   return (
     <section className={styles.post_card_list}>
-      <h2 className="text-outlined">Latests Posts</h2>
+      <h2 className={styles.post_card_list__title}>Latests Posts</h2>
       {posts.map(post => (
         <PostCard key={nanoid()} {...post} />
       ))}
