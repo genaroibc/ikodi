@@ -16,6 +16,21 @@
   transition: var(--text-hover-transition);
 }
 
+.note::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border-radius: 5px 0 0 5px;
+
+  width: 7px;
+  height: 100%;
+
+  background-color: var(--complement-color);
+}
+
 .note:hover {
   color: #fff;
 }
