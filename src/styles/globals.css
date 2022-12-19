@@ -11,6 +11,7 @@
   --complement-color: #21e6c1;
 
   --opaque-white: #fffc;
+  --inline-code-color: #f5c;
 
   --transition-duration-and-timing: 0.25s ease-out;
 
@@ -74,11 +75,7 @@ p code {
 
   border-radius: 5px;
 
-  background-color: var(--secondary-color);
-}
-
-div > p code {
-  background-color: var(--terciary-color);
+  color: var(--inline-code-color);
 }
 
 /* UTILITIY CLASSES */
