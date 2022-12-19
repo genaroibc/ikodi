@@ -1,6 +1,6 @@
-import { nanoid } from "nanoid";
+import { v4 as uuid } from "uuid";
 import styles from "./ContactBar.module.css";
-import { ContactItem } from "components/ContactItem/ContactItem";
+import { ContactItem } from "../../ContactItem/ContactItem";
 
 type Props = {
   items: Array<ContactItem>;
@@ -10,7 +10,7 @@ export function ContactBar({ items }: Props) {
   return (
     <div className={styles.contact_bar}>
       {items.map(item => (
-        <ContactItem key={nanoid()} {...item} />
+        <ContactItem key={uuid()} {...item} />
       ))}
     </div>
   );

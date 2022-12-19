@@ -1,6 +1,6 @@
-import { nanoid } from "nanoid";
+import { v4 as uuid } from "uuid";
 import styles from "./Tooltip.module.css";
-import { ContactItem } from "components/ContactItem/ContactItem";
+import { ContactItem } from "../ContactItem/ContactItem";
 
 type Props = {
   items: Array<ContactItem>;
@@ -14,7 +14,7 @@ export function Tooltip({ items, children }: Props) {
 
       <span className={styles.tooltip}>
         {items.map(item => (
-          <ContactItem {...item} key={nanoid()} />
+          <ContactItem {...item} key={uuid()} />
         ))}
       </span>
     </span>

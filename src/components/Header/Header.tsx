@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { v4 as uuid } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.css";
@@ -41,7 +41,7 @@ export function Header() {
           <Link
             onClick={toggleMenu}
             className={styles.nav_bar__link}
-            key={nanoid()}
+            key={uuid()}
             href={href}
             target={target}
           >
