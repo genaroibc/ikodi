@@ -8,7 +8,7 @@ IKodi is a place were I share my knowledge about programming and web development
 
 Visit it [here](https://ikodi.vercel.app)
 
-## 🎑 Upcoming Features
+## 🆕 Upcoming Features
 
 Feel free to suggest features you'd like to see [in the issues section](https://github.com/GenaroIBC/ikodi/issues) under the `feature` label.
 
