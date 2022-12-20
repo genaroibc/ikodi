@@ -20,3 +20,10 @@ export type SerializedPost = {
   >;
   frontmatter: PostMetadata;
 };
+
+export type Comment = {
+  author: string;
+  content: string;
+  date: string;
+  postId: string;
+};
