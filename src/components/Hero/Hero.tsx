@@ -1,5 +1,5 @@
-import { ContactItem } from "components/ContactItem/ContactItem";
-import { Tooltip } from "components/Tooltip/Tooltip";
+import { ContactItem } from "../ContactItem/ContactItem";
+import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./Hero.module.css";
 
 const CONTACT_ITEMS: Array<ContactItem> = [
