@@ -1,9 +1,9 @@
-import { CommentsModel } from "controllers/commentsController";
+import { CommentsModel } from "models/CommentsModel";
+import mongoose from "mongoose";
 import { Comment } from "types";
 
 export async function getAllCommentsByPostId(postId: string) {
   try {
-    // findAll ? findOne ? find ?
     const comments = await CommentsModel.find({ postId });
 
     return comments ?? [];
@@ -12,12 +12,19 @@ export async function getAllCommentsByPostId(postId: string) {
   }
 }
 
-export async function createCommentByPostId({
-  postId,
-  ...commentData
-}: Comment) {
+export async function getOneCommentById(_id: mongoose.Types.ObjectId) {
   try {
-    const createdComment = await new CommentsModel({ ...commentData, postId });
+    const comment = await CommentsModel.findById(_id);
+
+    return comment ?? {};
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function createCommentByData(commentData: Comment) {
+  try {
+    const createdComment = new CommentsModel({ ...commentData });
 
     await createdComment.save();
 
@@ -27,9 +34,9 @@ export async function createCommentByPostId({
   }
 }
 
-export async function deleteCommentByPostId(postId: string) {
+export async function deleteCommentById(_id: mongoose.Types.ObjectId) {
   try {
-    const deletedComment = await CommentsModel.removeOneById(postId);
+    const deletedComment = await CommentsModel.findByIdAndRemove(_id);
 
     return deletedComment;
   } catch (error) {
