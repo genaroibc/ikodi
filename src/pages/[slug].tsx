@@ -1,17 +1,40 @@
 import { Article } from "components/Article/Article";
+import { CommentForm } from "components/CommentForm/CommentForm";
+import { Comments } from "components/Comments/Comments";
 import { getPostBySlug, getPostsSlugs } from "lib/mdx";
 import { SerializedPost } from "types";
 
-export default function Post(post: SerializedPost) {
-  return <Article {...post} />;
+type PostProps = {
+  post: SerializedPost;
+  postId: string;
+};
+
+export default function Post({ post, postId }: PostProps) {
+  return (
+    <>
+      <Article {...post} />
+      <Comments postId={postId} />
+      <CommentForm postId={postId} />
+    </>
+  );
 }
 
-export async function getStaticProps({ params = { slug: "" } }) {
+type GetStaticPropsReturn = {
+  props: PostProps;
+};
+
+export async function getStaticProps({
+  params = { slug: "" }
+}): Promise<GetStaticPropsReturn> {
   const { frontmatter, source } = await getPostBySlug(params.slug);
+
   return {
     props: {
-      frontmatter,
-      source
+      post: {
+        frontmatter,
+        source
+      },
+      postId: params.slug
     }
   };
 }
