@@ -78,6 +78,17 @@ p code {
   color: var(--inline-code-color);
 }
 
+button {
+  padding: 1rem 2rem;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 1.2rem;
+
+  background: var(--terciary-color);
+}
+
 /* UTILITIY CLASSES */
 .text-highlighted {
   color: var(--complement-color);

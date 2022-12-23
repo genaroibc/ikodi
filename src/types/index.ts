@@ -7,6 +7,7 @@ export type Post = {
   slug: string;
   reading_time: string;
 };
+
 export type PostMetadata = {
   date: string;
   reading_time: string;
@@ -22,8 +23,9 @@ export type SerializedPost = {
 };
 
 export type Comment = {
-  author: string;
+  authorName: string;
   content: string;
   date: string;
+  authorId: string;
   postId: string;
 };

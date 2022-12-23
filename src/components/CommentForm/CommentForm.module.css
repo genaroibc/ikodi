@@ -31,3 +31,19 @@
 
   background-color: var(--terciary-color);
 }
+
+.comment_form__header {
+  display: flex;
+  gap: 1rem;
+
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--terciary-color);
+}
+
+.comment_form__header__avatar {
+  border-radius: 50%;
+
+  width: auto;
+  height: auto;
+}
