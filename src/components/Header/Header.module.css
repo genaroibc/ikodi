@@ -116,3 +116,26 @@
     padding: 0.5rem 0.8rem;
   }
 }
+
+.auth_nav_bar {
+  display: flex;
+  gap: 1rem;
+}
+
+.auth_nav_bar__img {
+  border-radius: 50%;
+}
+
+.auth_nav_bar__auth_provider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 5px;
+  border: none;
+
+  background-color: var(--terciary-color);
+  font-size: 1rem;
+}
