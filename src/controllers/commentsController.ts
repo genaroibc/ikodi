@@ -38,7 +38,7 @@ export async function deleteCommentById(_id: mongoose.Types.ObjectId) {
   try {
     const deletedComment = await CommentsModel.findByIdAndRemove(_id);
 
-    return deletedComment;
+    return deletedComment ?? {};
   } catch (error) {
     return error;
   }

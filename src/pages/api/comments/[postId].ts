@@ -40,7 +40,7 @@ const handler: NextApiHandler = async (req, res) => {
 
     case "DELETE":
       try {
-        const deletedComment = await deleteCommentById(body.postId);
+        const deletedComment = await deleteCommentById(body.commentId);
 
         return res.status(200).json({ ok: true, deletedComment });
       } catch (error) {
