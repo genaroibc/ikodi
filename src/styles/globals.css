@@ -4,8 +4,10 @@
   box-sizing: border-box;
 }
 
-*::-webkit-scrollbar {
+*::-webkit-scrollbar,
+*::-webkit-scrollbar:horizontal {
   width: 8px;
+  height: 8px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
