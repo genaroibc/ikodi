@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--complement-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--complement-color);
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--complement-color) transparent;
+}
+
 :root {
   --primary-color: #071e3d;
   --secondary-color: #1f4287;
@@ -33,6 +51,8 @@ html {
 
   color: white;
   background-color: #000;
+
+  scroll-behavior: smooth;
 }
 
 body {
