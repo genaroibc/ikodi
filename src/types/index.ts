@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export type Post = {
@@ -22,10 +23,13 @@ export type SerializedPost = {
   frontmatter: PostMetadata;
 };
 
+export type CommentId = mongoose.Types.ObjectId;
+
 export type Comment = {
   authorName: string;
   content: string;
   date: string;
   authorId: string;
   postId: string;
+  _id?: CommentId;
 };

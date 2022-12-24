@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models, Types } from "mongoose";
 import { Comment } from "types";
 
 const commentsSchema = new Schema<Comment>({
@@ -6,7 +6,8 @@ const commentsSchema = new Schema<Comment>({
   content: { type: "string", required: true },
   date: { type: "string", required: true },
   authorId: { type: "string", required: true },
-  postId: { type: "string", required: true }
+  postId: { type: "string", required: true },
+  _id: { type: Types.ObjectId }
 });
 
 export const CommentsModel =
