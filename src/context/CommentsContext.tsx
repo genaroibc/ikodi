@@ -1,13 +1,19 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { getPostComments } from "services/getPostComments";
-import { Comment } from "types";
+import { Comment, CommentId } from "types";
 import { createComment } from "services/createComment";
+import { deleteComment } from "services/deleteComment";
+
+type HandleDeleteComment = (ids: {
+  commentId: CommentId;
+  postId: string;
+}) => Promise<void>;
 
 type CommentsContext = {
   comments: Comment[];
-  setComments: (comments: Comment[]) => void;
-  getComments: (postId: string) => Promise<void>;
-  addComment: (comment: Comment) => Promise<void>;
+  handleGetComments: (postId: string) => Promise<void>;
+  handleAddComment: (commentData: Comment) => Promise<void>;
+  handleDeleteComment: HandleDeleteComment;
 };
 
 const CommentsContext = createContext<CommentsContext | null>(null);
@@ -15,7 +21,7 @@ const CommentsContext = createContext<CommentsContext | null>(null);
 export function CommentsProvider({ children }: { children: React.ReactNode }) {
   const [comments, setComments] = useState<Comment[]>([]);
 
-  const getComments = async (postId: string) => {
+  const handleGetComments = async (postId: string) => {
     try {
       const { data } = await getPostComments({ postId });
 
@@ -29,7 +35,7 @@ export function CommentsProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const addComment = async (commentData: Comment) => {
+  const handleAddComment = async (commentData: Comment) => {
     try {
       const { data } = await createComment({ commentData });
 
@@ -43,13 +49,35 @@ export function CommentsProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const handleDeleteComment: HandleDeleteComment = async ({
+    commentId,
+    postId
+  }) => {
+    try {
+      const { data } = await deleteComment({
+        commentId,
+        postId
+      });
+
+      if (!data.ok) {
+        throw new Error(data);
+      }
+
+      setComments(prevState =>
+        prevState.filter(comment => comment._id !== commentId)
+      );
+    } catch (error) {
+      console.error({ error });
+    }
+  };
+
   return (
     <CommentsContext.Provider
       value={{
         comments,
-        setComments,
-        getComments,
-        addComment
+        handleAddComment,
+        handleDeleteComment,
+        handleGetComments
       }}
     >
       {children}

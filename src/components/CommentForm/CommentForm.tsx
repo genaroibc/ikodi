@@ -18,7 +18,7 @@ type FormData = {
 export function CommentForm({ postId }: Props) {
   const { data: session, status } = useSession();
 
-  const { addComment } = useCommentsContext();
+  const { handleAddComment } = useCommentsContext();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault();
@@ -33,7 +33,7 @@ export function CommentForm({ postId }: Props) {
       postId
     };
 
-    addComment(commentData);
+    handleAddComment(commentData);
 
     // @ts-ignore
     e.target.reset();
@@ -57,7 +57,7 @@ export function CommentForm({ postId }: Props) {
           <textarea
             required={true}
             minLength={4}
-            maxLength={956}
+            maxLength={1956}
             name="commentContent"
             id="commentContent"
             rows={6}
