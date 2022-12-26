@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./Loader.module.css";
 
 type Props = {
   width: number;
@@ -6,5 +7,12 @@ type Props = {
 };
 
 export function Loader(props: Props) {
-  return <Image src="/svg/loader.svg" alt="animated loader" {...props} />;
+  return (
+    <Image
+      className={styles.loader}
+      src="/svg/loader.svg"
+      alt="animated loader"
+      {...props}
+    />
+  );
 }

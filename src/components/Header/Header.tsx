@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { Loader } from "components/Loader/Loader";
 
 const LINKS = [
   {
@@ -29,7 +30,6 @@ const toggleMenu = () => {
 
 export function Header() {
   const { data: session, status } = useSession();
-  console.log({ session, status });
 
   return (
     <header className={styles.header}>
@@ -71,12 +71,7 @@ export function Header() {
             </button>
           </>
         ) : status === "loading" ? (
-          <Image
-            src="/svg/loader.svg"
-            alt="animated loader"
-            width={50}
-            height={50}
-          />
+          <Loader width={50} height={50} />
         ) : (
           <button
             onClick={() => signIn("github")}
