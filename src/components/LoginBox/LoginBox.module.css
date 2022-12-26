@@ -9,10 +9,3 @@
   text-align: center;
   font-size: 1.5rem;
 }
-
-.login_box__btn {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: auto;
-}

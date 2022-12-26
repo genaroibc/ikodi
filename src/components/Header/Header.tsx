@@ -2,8 +2,9 @@ import { v4 as uuid } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.css";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { Loader } from "components/Loader/Loader";
+import { LoginButton } from "components/LoginButton/LoginButton";
 
 const LINKS = [
   {
@@ -73,18 +74,7 @@ export function Header() {
         ) : status === "loading" ? (
           <Loader width={50} height={50} />
         ) : (
-          <button
-            onClick={() => signIn("github")}
-            className={styles.auth_nav_bar__auth_provider}
-          >
-            Log in
-            <Image
-              width={30}
-              height={30}
-              src="/svg/github.svg"
-              alt="GitHub logo"
-            />
-          </button>
+          <LoginButton />
         )}
       </nav>
 
