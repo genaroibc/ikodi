@@ -1,0 +1,11 @@
+.login_box {
+  max-width: 500px;
+  margin: 2rem auto;
+
+  background-color: var(--secondary-color);
+}
+
+.login_box__message {
+  text-align: center;
+  font-size: 1.5rem;
+}

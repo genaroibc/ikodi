@@ -1,6 +1,6 @@
 ---
 title: "Working with the Local Storage API in JavaScript"
-date: "2022-11-30"
+date: "30-11-2022"
 reading_time: "3min 20sec"
 ---
 
@@ -189,11 +189,13 @@ When the page has loaded and the DOM is ready, we get the saved language from Lo
 Also, a good feature is that users can reset their language preference, and for this we would need to remove it from Local Storage:
 
 <Code language="JavaScript">
+
 ```javascript
-  function resetLanguage() {
-    localStorage.removeItem("language");
-  }
+function resetLanguage() {
+  localStorage.removeItem("language");
+}
 ```
+
 </Code>
 
 And, finally, in an unlikely scenario, we could completly empty the Local Storage:

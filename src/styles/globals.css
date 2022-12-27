@@ -77,6 +77,7 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 hr {
@@ -98,6 +99,21 @@ p code {
   border-radius: 5px;
 
   color: var(--inline-code-color);
+}
+
+button {
+  padding: 1rem 2rem;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 1.2rem;
+
+  background: var(--terciary-color);
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* UTILITIY CLASSES */

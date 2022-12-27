@@ -1,0 +1,50 @@
+.comment_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  max-width: 500px;
+  margin: auto;
+}
+
+.comment_form :is(input, textarea) {
+  padding: 1rem;
+  font-size: 1.2rem;
+
+  font-family: inherit;
+
+  resize: none;
+}
+
+.comment_form__submit_btn {
+  margin: auto;
+  padding: 1rem;
+
+  max-width: max-content;
+
+  font-size: 1.2rem;
+
+  border-radius: 5px;
+  border: none;
+
+  background-color: var(--terciary-color);
+}
+
+.comment_form__header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--terciary-color);
+}
+
+.comment_form__header__avatar {
+  border-radius: 50%;
+
+  width: 50px;
+  height: 50px;
+}

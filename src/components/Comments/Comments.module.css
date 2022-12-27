@@ -1,0 +1,36 @@
+.comments__title {
+  margin: 2.5rem auto;
+
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.modal {
+  max-width: 800px;
+  max-height: 700px;
+
+  position: fixed;
+  top: 50%;
+
+  margin: auto;
+
+  transform: translateY(-50%);
+
+  overflow: auto;
+
+  box-shadow: 0px 0px 10px 999px #000a;
+  background-color: var(--primary-color);
+  padding: 2rem;
+}
+
+.modal::backdrop {
+  background-color: #0004;
+  width: 100%;
+  box-shadow: 100px 0px 100px 100px #000;
+}
+
+.modal__nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

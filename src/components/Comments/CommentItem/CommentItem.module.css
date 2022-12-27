@@ -1,0 +1,41 @@
+.comment {
+  position: relative;
+
+  max-width: 800px;
+
+  padding: 1rem;
+  margin: 1rem auto;
+
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+}
+
+.comment__date {
+  color: var(--opaque-white);
+}
+
+.comment__actions {
+  display: flex;
+  position: absolute;
+
+  top: 1rem;
+  right: 1rem;
+
+  gap: 1rem;
+  border-radius: 5px;
+}
+
+.comment__actions button {
+  padding: 0.3rem 0.5rem;
+  background-color: var(--primary-color);
+}
+
+.comment_header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.comment_header__avatar {
+  border-radius: 50%;
+}

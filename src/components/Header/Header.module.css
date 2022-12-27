@@ -116,3 +116,15 @@
     padding: 0.5rem 0.8rem;
   }
 }
+
+.auth_nav_bar {
+  display: flex;
+  gap: 1rem;
+}
+
+.auth_nav_bar__img {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+}
