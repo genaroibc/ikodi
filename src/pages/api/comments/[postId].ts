@@ -1,7 +1,8 @@
 import {
   createCommentByData,
   deleteCommentById,
-  getAllCommentsByPostId
+  getAllCommentsByPostId,
+  updateCommentByData
 } from "controllers/commentsController";
 import { NextApiHandler } from "next";
 import { mongoDBConnection } from "services/mongoDBConnection";
@@ -43,6 +44,23 @@ const handler: NextApiHandler = async (req, res) => {
         const deletedComment = await deleteCommentById(body.commentId);
 
         return res.status(200).json({ ok: true, deletedComment });
+      } catch (error) {
+        // @ts-ignore
+        return res.status(error.status).json({ ok: false, ...error });
+      }
+
+    case "PUT":
+      const {
+        commentData: { commentContent, commentId }
+      } = body;
+
+      try {
+        const updatedComment = await updateCommentByData({
+          commentContent,
+          commentId
+        });
+
+        return res.status(200).json({ ok: true, updatedComment });
       } catch (error) {
         // @ts-ignore
         return res.status(error.status).json({ ok: false, ...error });

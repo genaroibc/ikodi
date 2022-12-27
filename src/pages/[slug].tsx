@@ -24,9 +24,7 @@ export default function Post({ post, postId }: PostProps) {
         <Comments postId={postId} />
 
         {status === "authenticated" ? (
-          <>
-            <CommentForm postId={postId} />
-          </>
+          <CommentForm action={{ type: "createComment" }} postId={postId} />
         ) : status === "loading" ? (
           <Loader height={50} width={50} />
         ) : (

@@ -5,20 +5,21 @@ import styles from "./CommentItem.module.css";
 type Props = {
   comment: Comment;
   handleDelete: () => void;
-  authenticated: boolean;
+  handleEdit: () => void;
+  showActionsBox: boolean;
 };
 
 export function CommentItem({
-  authenticated,
   comment: { authorName, content, date, authorId },
-  handleDelete
+  showActionsBox,
+  handleDelete,
+  handleEdit
 }: Props) {
-  console.log("object");
   return (
     <article className={styles.comment}>
-      {authenticated ? (
+      {showActionsBox ? (
         <nav className={styles.comment__actions}>
-          <button onClick={handleDelete}>
+          <button onClick={handleEdit}>
             <Image
               src="/svg/edit.svg"
               alt="edit comment icon"
@@ -36,6 +37,7 @@ export function CommentItem({
           </button>
         </nav>
       ) : null}
+
       <header className={styles.comment_header}>
         <span>
           <Image

@@ -2,19 +2,23 @@ import { CommentItem } from "./CommentItem/CommentItem";
 import { v4 as uuid } from "uuid";
 import styles from "./Comments.module.css";
 import { useCommentsContext } from "context/CommentsContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { CommentId } from "types";
+import { Comment, CommentId } from "types";
+import { CommentForm } from "components/CommentForm/CommentForm";
 
 type Props = {
   postId: string;
 };
 
 export function Comments({ postId }: Props) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [commentToEdit, setCommentToEdit] = useState<Comment | null>(null);
+
   const { comments, handleGetComments, handleDeleteComment } =
     useCommentsContext();
 
-  const { status } = useSession();
+  const { data: session, status } = useSession();
 
   const handleDelete = (commentId: CommentId) => {
     handleDeleteComment({
@@ -23,21 +27,44 @@ export function Comments({ postId }: Props) {
     });
   };
 
+  const handleEdit = (commentData: Comment) => {
+    setCommentToEdit(commentData);
+    setModalOpen(true);
+  };
+
   useEffect(() => {
     handleGetComments(postId);
     // eslint-disable-next-line
   }, [postId]);
+
   return (
-    <div className={styles.comments}>
-      <h3 className={styles.comments__title}>Comments:</h3>
+    <section className={styles.comments}>
+      <h3 className={styles.comments__title}>
+        {comments.length ? "Comments:" : "✨ You can be the first comment!! ✨"}
+      </h3>
+
       {comments?.map(comment => (
         <CommentItem
-          authenticated={status === "authenticated"}
+          showActionsBox={
+            status === "authenticated" &&
+            comment.authorName === session.user?.name
+          }
           handleDelete={() => handleDelete(comment._id!)}
+          handleEdit={() => handleEdit(comment)}
           key={uuid()}
           comment={comment}
         />
       ))}
-    </div>
+
+      <dialog className={styles.modal} open={modalOpen}>
+        <CommentForm
+          action={{ type: "updateComment", commentData: commentToEdit }}
+          postId={postId}
+        />
+        <nav className={styles.modal__nav}>
+          <button onClick={() => setModalOpen(false)}>Close</button>
+        </nav>
+      </dialog>
+    </section>
   );
 }
