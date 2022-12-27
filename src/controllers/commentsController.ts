@@ -24,7 +24,10 @@ export async function getOneCommentById(_id: mongoose.Types.ObjectId) {
 
 export async function createCommentByData(commentData: Comment) {
   try {
-    const createdComment = new CommentsModel({ ...commentData });
+    const createdComment = new CommentsModel({
+      ...commentData,
+      _id: new mongoose.Types.ObjectId()
+    });
 
     await createdComment.save();
 
@@ -50,15 +53,16 @@ export async function updateCommentByData({
   commentContent,
   commentId
 }: UpdateController) {
-  // throw new Error("find what is the correct method to update and get the **updated** value")
   try {
-    // (find what is the correct method to update and get the updated value)
+    const updatedComment = await CommentsModel.findByIdAndUpdate(
+      commentId,
+      {
+        content: commentContent
+      },
+      { new: true }
+    );
 
-    const updatedComment = await CommentsModel.findByIdAndUpdate(commentId, {
-      content: commentContent
-    });
-
-    return (await CommentsModel.findById(commentId)) ?? {};
+    return updatedComment ?? {};
   } catch (error) {
     return error;
   }

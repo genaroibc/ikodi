@@ -9,6 +9,7 @@ import { getFormData } from "utils/getFormData";
 import styles from "./CommentForm.module.css";
 
 type Props = {
+  afterSubmit?: () => void;
   postId: string;
   action: {
     type: "updateComment" | "createComment";
@@ -20,22 +21,28 @@ type FormData = {
   commentContent: string;
 };
 
-export function CommentForm({ postId, action }: Props) {
+export function CommentForm({ afterSubmit, postId, action }: Props) {
   const { data: session, status } = useSession();
 
   const { handleAddComment, handleUpdateComment } = useCommentsContext();
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
 
     const formData = getFormData<FormData>(e.target as HTMLFormElement);
+    const authorId = session!
+      .user!.image!.split("/")
+      .at(-1)!
+      .replace(/\?.*/, "")!;
+
+    // const { data } = await axios.get(`http://api.github.com/user/${authorId}`);
 
     if (action.type === "createComment") {
       const commentData = {
         authorName: session!.user!.name!,
         content: formData.commentContent,
         date: new Date().toISOString().slice(0, 10),
-        authorId: session!.user!.image!.split("/").at(-1)!.replace(/\?.*/, "")!,
+        authorId,
         postId
       };
 
@@ -56,44 +63,44 @@ export function CommentForm({ postId, action }: Props) {
 
       handleUpdateComment(data);
     }
+
+    afterSubmit && afterSubmit();
   };
 
   return (
     <>
-      {
-        /*status === "authenticated"*/ true ? (
-          <form onSubmit={handleSubmit} className={styles.comment_form}>
-            <header className={styles.comment_form__header}>
-              <Image
-                className={styles.comment_form__header__avatar}
-                src={session?.user?.image ?? "/img/user-placeholder.jpg"}
-                alt="Your profile photo"
-                width={50}
-                height={50}
-              />
-              <h4>{session?.user?.name}</h4>
-            </header>
-
-            <textarea
-              required={true}
-              minLength={4}
-              maxLength={1956}
-              name="commentContent"
-              id="commentContent"
-              rows={6}
-              defaultValue={action.commentData?.content}
+      {status === "authenticated" ? (
+        <form onSubmit={handleSubmit} className={styles.comment_form}>
+          <header className={styles.comment_form__header}>
+            <Image
+              className={styles.comment_form__header__avatar}
+              src={session?.user?.image ?? "/img/user-placeholder.jpg"}
+              alt="Your profile photo"
+              width={50}
+              height={50}
             />
+            <h4>{session?.user?.name}</h4>
+          </header>
 
-            <button className={styles.comment_form__submit_btn} type="submit">
-              Comment
-            </button>
-          </form>
-        ) : status === "loading" ? (
-          <Loader height={50} width={50} />
-        ) : (
-          <LoginBox />
-        )
-      }
+          <textarea
+            required={true}
+            minLength={4}
+            maxLength={1956}
+            name="commentContent"
+            id="commentContent"
+            rows={6}
+            defaultValue={action.commentData?.content}
+          />
+
+          <button className={styles.comment_form__submit_btn} type="submit">
+            Comment
+          </button>
+        </form>
+      ) : status === "loading" ? (
+        <Loader height={50} width={50} />
+      ) : (
+        <LoginBox />
+      )}
     </>
   );
 }

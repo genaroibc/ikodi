@@ -56,7 +56,7 @@ export function CommentsProvider({ children }: { children: React.ReactNode }) {
         throw new Error(data);
       }
 
-      setComments(prevState => [...prevState, data.createdComment]);
+      setComments(prevState => [data.createdComment, ...prevState]);
     } catch (error) {
       console.error({ error });
     }

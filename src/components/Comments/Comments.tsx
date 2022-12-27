@@ -58,11 +58,12 @@ export function Comments({ postId }: Props) {
 
       <dialog className={styles.modal} open={modalOpen}>
         <CommentForm
+          afterSubmit={() => setModalOpen(false)}
           action={{ type: "updateComment", commentData: commentToEdit }}
           postId={postId}
         />
         <nav className={styles.modal__nav}>
-          <button onClick={() => setModalOpen(false)}>Close</button>
+          <button onClick={() => setModalOpen(false)}>Cancel</button>
         </nav>
       </dialog>
     </section>
