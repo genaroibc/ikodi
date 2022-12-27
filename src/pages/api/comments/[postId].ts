@@ -7,7 +7,7 @@ import {
 import { NextApiHandler } from "next";
 import { mongoDBConnection } from "services/mongoDBConnection";
 
-mongoDBConnection(process.env.MONGODB_DATABASE_URL);
+mongoDBConnection(process.env.MONGODB_URI);
 
 const handler: NextApiHandler = async (req, res) => {
   const { method, body, query } = req;
