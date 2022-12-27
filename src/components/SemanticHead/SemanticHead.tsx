@@ -11,10 +11,7 @@ export function SemanticHead() {
         content="IKodi is a blog about web development and programming were you can find articles about many different tools, technologies and web concepts."
       />
       <meta property="og:url" content="https://ikodi.vercel.app" />
-      <meta
-        property="og:site_name"
-        content="IKodi - The Web Development blog"
-      />
+      <meta property="og:site_name" content="IKodi - A Web Development blog" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="IKodi - The Web Development post" />
       <meta
