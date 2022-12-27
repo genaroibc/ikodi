@@ -7,7 +7,7 @@ type Props = {
   posts: Array<Post>;
 };
 
-export default function Home({ posts }: Props) {
+export default function Home({ posts = [] }: Props) {
   return (
     <>
       <Hero />

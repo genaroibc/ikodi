@@ -9,5 +9,5 @@ export function getFormData<T extends Object>(form: HTMLFormElement): T {
     {}
   );
 
-  return formData;
+  return formData as T;
 }
