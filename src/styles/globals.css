@@ -90,6 +90,10 @@ button {
   background: var(--terciary-color);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* UTILITIY CLASSES */
 .text-highlighted {
   color: var(--complement-color);
