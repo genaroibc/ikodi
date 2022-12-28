@@ -22,7 +22,7 @@ export async function getOneCommentById(_id: CommentId) {
   }
 }
 
-export async function createCommentByData(commentData: Comment) {
+export async function createOneCommentByData(commentData: Comment) {
   try {
     const createdComment = new CommentsModel({
       ...commentData,
@@ -37,7 +37,7 @@ export async function createCommentByData(commentData: Comment) {
   }
 }
 
-export async function deleteCommentById(_id: CommentId) {
+export async function deleteOneCommentById(_id: CommentId) {
   try {
     const deletedComment = await CommentsModel.findByIdAndRemove(_id);
 
@@ -49,7 +49,7 @@ export async function deleteCommentById(_id: CommentId) {
 
 type UpdateController = { commentId: CommentId; commentContent: string };
 
-export async function updateCommentByData({
+export async function updateOneCommentByData({
   commentContent,
   commentId
 }: UpdateController) {

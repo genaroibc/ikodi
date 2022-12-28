@@ -1,8 +1,8 @@
 import {
-  createCommentByData,
-  deleteCommentById,
+  createOneCommentByData,
+  deleteOneCommentById,
   getAllCommentsByPostId,
-  updateCommentByData
+  updateOneCommentByData
 } from "controllers/commentsController";
 import { NextApiHandler } from "next";
 import { mongoDBConnection } from "services/mongoDBConnection";
@@ -31,7 +31,7 @@ const handler: NextApiHandler = async (req, res) => {
 
     case "POST":
       try {
-        const createdComment = await createCommentByData(body.commentData);
+        const createdComment = await createOneCommentByData(body.commentData);
 
         return res.status(200).json({ ok: true, createdComment });
       } catch (error) {
@@ -41,7 +41,7 @@ const handler: NextApiHandler = async (req, res) => {
 
     case "DELETE":
       try {
-        const deletedComment = await deleteCommentById(body.commentId);
+        const deletedComment = await deleteOneCommentById(body.commentId);
 
         return res.status(200).json({ ok: true, deletedComment });
       } catch (error) {
@@ -55,7 +55,7 @@ const handler: NextApiHandler = async (req, res) => {
       } = body;
 
       try {
-        const updatedComment = await updateCommentByData({
+        const updatedComment = await updateOneCommentByData({
           commentContent,
           commentId
         });
