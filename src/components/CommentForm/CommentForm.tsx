@@ -4,13 +4,13 @@ import { useCommentsContext } from "context/CommentsContext";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { FormEventHandler } from "react";
-import { Comment } from "types";
+import { Comment, CommentContent, CommentPostId } from "types";
 import { getFormData } from "utils/getFormData";
 import styles from "./CommentForm.module.css";
 
 type Props = {
   afterSubmit?: () => void;
-  postId: string;
+  postId: CommentPostId;
   action: {
     type: "updateComment" | "createComment";
     commentData?: Comment | null;
@@ -18,7 +18,7 @@ type Props = {
 };
 
 type FormData = {
-  commentContent: string;
+  commentContent: CommentContent;
 };
 
 export function CommentForm({ afterSubmit, postId, action }: Props) {

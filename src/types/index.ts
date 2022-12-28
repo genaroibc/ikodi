@@ -24,12 +24,17 @@ export type SerializedPost = {
 };
 
 export type CommentId = mongoose.Types.ObjectId;
+export type CommentContent = string;
+export type CommentDate = string;
+export type CommentAutorName = string;
+export type CommentAuthorId = string;
+export type CommentPostId = string;
 
 export type Comment = {
-  authorName: string;
-  content: string;
-  date: string;
-  authorId: string;
-  postId: string;
+  authorName: CommentAutorName;
+  content: CommentContent;
+  date: CommentDate;
+  authorId: CommentAuthorId;
+  postId: CommentPostId;
   _id?: CommentId;
 };

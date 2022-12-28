@@ -12,7 +12,7 @@ export async function getAllCommentsByPostId(postId: string) {
   }
 }
 
-export async function getOneCommentById(_id: mongoose.Types.ObjectId) {
+export async function getOneCommentById(_id: CommentId) {
   try {
     const comment = await CommentsModel.findById(_id);
 
@@ -37,7 +37,7 @@ export async function createCommentByData(commentData: Comment) {
   }
 }
 
-export async function deleteCommentById(_id: mongoose.Types.ObjectId) {
+export async function deleteCommentById(_id: CommentId) {
   try {
     const deletedComment = await CommentsModel.findByIdAndRemove(_id);
 

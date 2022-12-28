@@ -4,11 +4,11 @@ import styles from "./Comments.module.css";
 import { useCommentsContext } from "context/CommentsContext";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { Comment, CommentId } from "types";
+import { Comment, CommentId, CommentPostId } from "types";
 import { CommentForm } from "components/CommentForm/CommentForm";
 
 type Props = {
-  postId: string;
+  postId: CommentPostId;
 };
 
 export function Comments({ postId }: Props) {
