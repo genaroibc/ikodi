@@ -5,18 +5,21 @@ export function SemanticHead() {
     <Head>
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="IKodi - The Web Development blog" />
+      <meta
+        property="og:title"
+        content="IKodi - programming and web development"
+      />
       <meta
         property="og:description"
         content="IKodi is a blog about web development and programming were you can find articles about many different tools, technologies and web concepts."
       />
       <meta property="og:url" content="https://ikodi.vercel.app" />
-      <meta property="og:site_name" content="IKodi - A Web Development blog" />
+      <meta property="og:site_name" content="IKodi" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="IKodi - The Web Development post" />
       <meta
         name="twitter:description"
-        content="IKodi is a blog about web development and programming were you can find articles about many different tools, technologies and web concepts."
+        content="IKodi is a blog about web development and programming,  were you can find articles about many different tools, technologies and web concepts."
       />
       <meta
         name="twitter:image"
