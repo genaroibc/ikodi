@@ -14,38 +14,3 @@
   margin: 2rem auto;
   display: block;
 }
-
-.thanks {
-  margin: 2rem auto;
-
-  position: relative;
-
-  font-size: 1.3rem;
-
-  text-align: center;
-}
-
-.backToHome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: max-content;
-
-  margin-left: 2rem;
-  padding: 0.5rem;
-
-  background-color: var(--secondary-color);
-  border-radius: 5px;
-  transition: var(--box-shadow-transition);
-}
-
-.backToHome:hover {
-  box-shadow: 0px 5px 5px 2px #0004;
-}
-
-.backToHome img {
-  margin: 0 0.5rem;
-
-  transform: rotate(-180deg);
-}
