@@ -1,9 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { getPostComments } from "services/getPostComments";
 import { Comment, CommentId } from "types";
-import { createComment } from "services/createComment";
-import { deleteComment } from "services/deleteComment";
-import { updateComment } from "services/updateComment";
+import { createComment, deleteComment, updateComment } from "services/comments";
 import { sortByDate } from "utils/sortByDate";
 
 type HandleDeleteComment = (ids: {
