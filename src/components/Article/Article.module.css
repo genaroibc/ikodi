@@ -25,7 +25,7 @@
   text-align: center;
 }
 
-.back_to_home_link {
+.backToHome {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,11 +40,11 @@
   transition: var(--box-shadow-transition);
 }
 
-.back_to_home_link:hover {
+.backToHome:hover {
   box-shadow: 0px 5px 5px 2px #0004;
 }
 
-.back_to_home_link img {
+.backToHome img {
   margin: 0 0.5rem;
 
   transform: rotate(-180deg);

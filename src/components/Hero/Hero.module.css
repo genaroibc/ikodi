@@ -3,7 +3,7 @@
   margin: 4rem auto;
 }
 
-.hero_title {
+.heroTitle {
   margin: 0.5rem auto;
 
   font-size: 3.2rem;
@@ -19,18 +19,18 @@
   }
 }
 
-.hero_subtitle {
+.heroSubtitle {
   margin: 1.5rem auto 4.5rem;
 
   font-size: 2.5rem;
   text-align: center;
 }
 
-.hero_description {
+.heroDescription {
   font-size: 1.5rem;
 }
 
-.hero_description__name {
+.heroDescription__name {
   font-weight: 600;
   white-space: nowrap;
 }

@@ -10,9 +10,9 @@ export type ContactItem = {
 
 export function ContactItem({ href, iconSrc, title }: ContactItem) {
   return (
-    <Link className={styles.contact_item} href={href} target="_blank">
+    <Link className={styles.contactItem} href={href} target="_blank">
       <Image
-        className={styles.contact_item__icon}
+        className={styles.contactItem__icon}
         width={50}
         height={50}
         src={iconSrc}

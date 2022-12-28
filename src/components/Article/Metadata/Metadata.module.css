@@ -1,4 +1,4 @@
-.metadata_container {
+.metadataContainer {
   max-width: max-content;
 
   display: flex;
@@ -16,6 +16,6 @@
   border-radius: 5px;
 }
 
-.metadata_container img {
+.metadataContainer img {
   margin-right: 10px;
 }

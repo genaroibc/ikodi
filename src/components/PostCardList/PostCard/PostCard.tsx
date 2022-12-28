@@ -6,9 +6,9 @@ import styles from "./PostCard.module.css";
 export function PostCard({ date, title, slug, reading_time }: Post) {
   return (
     <Link className={styles.link} href={`/${slug}`}>
-      <article className={styles.post_card}>
-        <h3 className={styles.post_card__title}>{title}</h3>
-        <h4 className={styles.post_card__date}>
+      <article className={styles.postCard}>
+        <h3 className={styles.postCard__title}>{title}</h3>
+        <h4 className={styles.postCard__date}>
           <Image
             src="/svg/calendar.svg"
             alt="calendar icon"
@@ -17,13 +17,13 @@ export function PostCard({ date, title, slug, reading_time }: Post) {
           />
           {date}
         </h4>
-        <h4 className={styles.post_card__reading_time}>
+        <h4 className={styles.postCard__readingTime}>
           <Image src="/svg/clock.svg" alt="clock icon" width={20} height={20} />
 
           {reading_time}
         </h4>
         <Image
-          className={styles.post_card__arrow}
+          className={styles.postCard__arrow}
           src="/svg/arrow-right.svg"
           alt="arrow icon"
           width={20}

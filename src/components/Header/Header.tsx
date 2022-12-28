@@ -35,17 +35,17 @@ export function Header() {
   return (
     <header className={styles.header}>
       <Image
-        className={styles.logo}
+        className={styles.header__logo}
         src="/img/logo-dark.png"
         alt="IKodi Logo"
         width={390}
         height={187}
       />
-      <nav id="open-menu-btn" className={styles.nav_bar}>
+      <nav id="open-menu-btn" className={styles.navBar}>
         {LINKS.map(({ href, title, target }) => (
           <Link
             onClick={toggleMenu}
-            className={styles.nav_bar__link}
+            className={styles.navBar__link}
             key={uuid()}
             href={href}
             target={target}
@@ -54,22 +54,17 @@ export function Header() {
           </Link>
         ))}
       </nav>
-      <nav className={styles.auth_nav_bar}>
+      <nav className={styles.authNavBar}>
         {status === "authenticated" ? (
           <>
             <Image
-              className={styles.auth_nav_bar__img}
+              className={styles.authNavBar__img}
               alt={`Your profile photo`}
               src={session.user?.image ?? "/img/user-placeholder.jpg"}
               width={50}
               height={50}
             />
-            <button
-              onClick={() => signOut()}
-              className={styles.auth_nav_bar__auth_provider}
-            >
-              Log out
-            </button>
+            <button onClick={() => signOut()}>Log out</button>
           </>
         ) : status === "loading" ? (
           <Loader width={50} height={50} />
@@ -78,10 +73,10 @@ export function Header() {
         )}
       </nav>
 
-      <button onClick={toggleMenu} className={styles.menu_btn}>
-        <span className={styles.menu_btn__stick}></span>
-        <span className={styles.menu_btn__stick}></span>
-        <span className={styles.menu_btn__stick}></span>
+      <button onClick={toggleMenu} className={styles.menuBtn}>
+        <span className={styles.menuBtn__stick}></span>
+        <span className={styles.menuBtn__stick}></span>
+        <span className={styles.menuBtn__stick}></span>
       </button>
     </header>
   );

@@ -15,7 +15,7 @@
   padding: 1rem;
 }
 
-.nav_bar {
+.navBar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -26,23 +26,23 @@
   transition: left 0.5s ease-in-out;
 }
 
-.logo {
+.header__logo {
   max-width: 150px;
 }
 
-.nav_bar__link {
+.navBar__link {
   font-size: 1.3rem;
   transition: var(--text-hover-transition),
     text-shadow var(--transition-duration-and-timing);
   color: var(--opaque-white);
 }
 
-.nav_bar__link:hover {
+.navBar__link:hover {
   text-shadow: 0px 0px 10px var(--complement-color);
   color: #fff;
 }
 
-.menu_btn {
+.menuBtn {
   z-index: 1000;
 
   width: 4rem;
@@ -61,7 +61,7 @@
   border-radius: 5px;
 }
 
-.menu_btn__stick {
+.menuBtn__stick {
   width: 100%;
   height: 3.2px;
 
@@ -72,20 +72,20 @@
   border-radius: 5px;
 }
 
-.menu_opened ~ .menu_btn .menu_btn__stick:first-child {
+.menuOpened ~ .menuBtn .menuBtn__stick:first-child {
   transform: rotate(34.5deg) scaleX(1.2);
 }
 
-.menu_opened ~ .menu_btn .menu_btn__stick:nth-child(2) {
+.menuOpened ~ .menuBtn .menuBtn__stick:nth-child(2) {
   opacity: 0;
 }
 
-.menu_opened ~ .menu_btn .menu_btn__stick:nth-child(3) {
+.menuOpened ~ .menuBtn .menuBtn__stick:nth-child(3) {
   transform: rotate(-34.5deg) scaleX(1.2);
 }
 
 @media screen and (max-width: 768px) {
-  .nav_bar {
+  .navBar {
     width: 100%;
 
     position: absolute;
@@ -99,15 +99,15 @@
     box-shadow: var(--box-shadow);
   }
 
-  .menu_opened {
+  .menuOpened {
     left: 0;
   }
 
-  .menu_btn {
+  .menuBtn {
     display: flex;
   }
 
-  .logo {
+  .header__logo {
     width: auto;
     max-height: 50px;
   }
@@ -117,12 +117,12 @@
   }
 }
 
-.auth_nav_bar {
+.authNavBar {
   display: flex;
   gap: 1rem;
 }
 
-.auth_nav_bar__img {
+.authNavBar__img {
   width: 50px;
   height: 50px;
 

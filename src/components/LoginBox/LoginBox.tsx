@@ -3,8 +3,8 @@ import styles from "./LoginBox.module.css";
 
 export function LoginBox() {
   return (
-    <section className={styles.login_box}>
-      <p className={styles.login_box__message}>Log in to comment</p>
+    <section className={styles.loginBox}>
+      <p className={styles.loginBox__message}>Log in to comment</p>
       <LoginButton />
     </section>
   );

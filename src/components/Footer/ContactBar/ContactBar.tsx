@@ -8,7 +8,7 @@ type Props = {
 
 export function ContactBar({ items }: Props) {
   return (
-    <div className={styles.contact_bar}>
+    <div className={styles.contactBar}>
       {items.map(item => (
         <ContactItem key={uuid()} {...item} />
       ))}

@@ -38,10 +38,10 @@ export function CommentItem({
         </nav>
       ) : null}
 
-      <header className={styles.comment_header}>
+      <header className={styles.commentHeader}>
         <span>
           <Image
-            className={styles.comment_header__avatar}
+            className={styles.commentHeader__avatar}
             src={`https://avatars.githubusercontent.com/u/${authorId}`}
             alt={`${authorName}'s user avatar`}
             title={`${authorName}'s user avatar`}
@@ -49,7 +49,7 @@ export function CommentItem({
             height={50}
           />
         </span>
-        <h3 className={styles.comment_header__author}>{authorName}</h3>
+        <h3 className={styles.commentHeader__author}>{authorName}</h3>
       </header>
       <h4 className={styles.comment__date}>{date}</h4>
       <p className={styles.comment__content}>{content}</p>

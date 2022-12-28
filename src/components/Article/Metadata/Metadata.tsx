@@ -4,7 +4,7 @@ import styles from "./Metadata.module.css";
 
 export function Metadata({ reading_time, date }: PostMetadata) {
   return (
-    <div className={styles.metadata_container}>
+    <div className={styles.metadataContainer}>
       <span>
         <Image src="/svg/clock.svg" alt="clock icon" width={20} height={20} />
         {reading_time}

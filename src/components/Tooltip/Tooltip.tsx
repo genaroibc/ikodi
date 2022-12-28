@@ -9,7 +9,7 @@ type Props = {
 
 export function Tooltip({ items, children }: Props) {
   return (
-    <span className={styles.tooltip_container}>
+    <span className={styles.tooltipContainer}>
       {children}
 
       <span className={styles.tooltip}>

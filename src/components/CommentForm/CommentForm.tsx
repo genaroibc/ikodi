@@ -70,10 +70,10 @@ export function CommentForm({ afterSubmit, postId, action }: Props) {
   return (
     <>
       {status === "authenticated" ? (
-        <form onSubmit={handleSubmit} className={styles.comment_form}>
-          <header className={styles.comment_form__header}>
+        <form onSubmit={handleSubmit} className={styles.commentForm}>
+          <header className={styles.commentForm__header}>
             <Image
-              className={styles.comment_form__header__avatar}
+              className={styles.commentForm__header__avatar}
               src={session?.user?.image ?? "/img/user-placeholder.jpg"}
               alt="Your profile photo"
               width={50}
@@ -92,7 +92,7 @@ export function CommentForm({ afterSubmit, postId, action }: Props) {
             defaultValue={action.commentData?.content}
           />
 
-          <button className={styles.comment_form__submit_btn} type="submit">
+          <button className={styles.commentForm__submitBtn} type="submit">
             Comment
           </button>
         </form>

@@ -1,4 +1,4 @@
-.tooltip_container {
+.tooltipContainer {
   position: relative;
   display: inline;
 }
@@ -37,6 +37,6 @@
   background-color: inherit;
 }
 
-.tooltip_container:hover .tooltip {
+.tooltipContainer:hover .tooltip {
   display: flex;
 }

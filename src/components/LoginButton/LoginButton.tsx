@@ -4,7 +4,7 @@ import styles from "./LoginButton.module.css";
 
 export function LoginButton() {
   return (
-    <button onClick={() => signIn("github")} className={styles.login_btn}>
+    <button onClick={() => signIn("github")} className={styles.loginBtn}>
       Log in
       <Image width={30} height={30} src="/svg/github.svg" alt="GitHub logo" />
     </button>

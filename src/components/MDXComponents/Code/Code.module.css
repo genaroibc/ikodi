@@ -1,16 +1,16 @@
-.code_container {
+.codeContainer {
   margin: 2rem auto;
 }
 
-.code_container pre {
+.codeContainer pre {
   margin: 0;
 }
 
-.code_container:hover .code_container__language {
+.codeContainer:hover .codeContainer__language {
   color: #fff;
 }
 
-.code_container__language {
+.codeContainer__language {
   display: block;
   width: max-content;
 

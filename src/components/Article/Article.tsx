@@ -16,7 +16,7 @@ export function Article({ frontmatter, source }: SerializedPost) {
 
       <p className={styles.thanks}>Thanks for reading!!</p>
 
-      <Link className={styles.back_to_home_link} href="/">
+      <Link className={styles.backToHome} href="/">
         <Image
           src="/svg/arrow-right.svg"
           alt="arrow icon"

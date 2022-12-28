@@ -30,12 +30,12 @@
   background-color: var(--primary-color);
 }
 
-.comment_header {
+.commentHeader {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.comment_header__avatar {
+.commentHeader__avatar {
   border-radius: 50%;
 }

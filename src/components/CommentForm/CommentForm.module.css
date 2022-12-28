@@ -1,4 +1,4 @@
-.comment_form {
+.commentForm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -9,7 +9,7 @@
   margin: auto;
 }
 
-.comment_form :is(input, textarea) {
+.commentForm :is(input, textarea) {
   padding: 1rem;
   font-size: 1.2rem;
 
@@ -18,7 +18,7 @@
   resize: none;
 }
 
-.comment_form__submit_btn {
+.commentForm__submitBtn {
   margin: auto;
   padding: 1rem;
 
@@ -32,7 +32,7 @@
   background-color: var(--terciary-color);
 }
 
-.comment_form__header {
+.commentForm__header {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -42,7 +42,7 @@
   background-color: var(--terciary-color);
 }
 
-.comment_form__header__avatar {
+.commentForm__header__avatar {
   border-radius: 50%;
 
   width: 50px;

@@ -1,4 +1,4 @@
-.post_card_list {
+.postCardList {
   max-width: 800px;
   margin: auto;
 
@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-.post_card_list__title {
+.postCardList__title {
   position: relative;
 
   width: fit-content;
@@ -17,7 +17,7 @@
   font-size: 2rem;
 }
 
-.post_card_list__title::after {
+.postCardList__title::after {
   content: "";
 
   position: absolute;
