@@ -7,17 +7,15 @@ export function sortByDate<T extends { date: string }>({
   newestFirst,
   items
 }: Params<T>) {
-  if (newestFirst) {
-    return items.sort((a, b) => {
-      const res = new Date(b.date).getTime() - new Date(a.date).getTime();
+  if (!items.length) return [];
 
-      return res;
-    });
+  if (newestFirst) {
+    return items.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
   }
 
-  return items.sort((a, b) => {
-    const res = new Date(a.date).getTime() - new Date(b.date).getTime();
-
-    return res;
-  });
+  return items.sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
 }
