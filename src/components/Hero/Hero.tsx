@@ -1,17 +1,17 @@
-import { ContactItem } from "../ContactItem/ContactItem";
+import { ContactItem } from "../ContactBar/ContactItem/ContactItem";
 import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./Hero.module.css";
 
 const CONTACT_ITEMS: Array<ContactItem> = [
   {
-    iconSrc: "/svg/github.svg",
-    title: "TITLE",
-    href: "https://github.com/GenaroIBC"
+    href: "https://github.com/GenaroIBC",
+    name: "github",
+    size: "medium"
   },
   {
-    iconSrc: "/svg/linkedin.svg",
-    title: "TITLE",
-    href: "https://www.linkedin.com/in/genaro-bonavita-170742231/"
+    href: "https://www.linkedin.com/in/genaro-bonavita-170742231/",
+    name: "linkedin",
+    size: "medium"
   }
 ];
 

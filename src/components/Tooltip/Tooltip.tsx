@@ -1,6 +1,6 @@
-import { v4 as uuid } from "uuid";
+import type { ContactItem } from "../ContactBar/ContactItem/ContactItem";
+import { ContactBar } from "../ContactBar/ContactBar";
 import styles from "./Tooltip.module.css";
-import { ContactItem } from "../ContactItem/ContactItem";
 
 type Props = {
   items: Array<ContactItem>;
@@ -13,9 +13,7 @@ export function Tooltip({ items, children }: Props) {
       {children}
 
       <span className={styles.tooltip}>
-        {items.map(item => (
-          <ContactItem {...item} key={uuid()} />
-        ))}
+        <ContactBar items={items} />
       </span>
     </span>
   );

@@ -5,9 +5,9 @@ import { ContactItem } from "./ContactItem";
 
 describe("ContactItem", () => {
   const mockData: ContactItem = {
-    iconSrc: "/svg/github.svg",
-    title: "github",
-    href: "https://github.com/GenaroIBC"
+    href: "https://github.com/GenaroIBC",
+    name: "github",
+    size: "medium"
   };
 
   beforeEach(() => {
@@ -22,9 +22,9 @@ describe("ContactItem", () => {
   });
 
   it("renders icon correctly", () => {
-    const icon = screen.getByAltText(mockData.title);
+    const icon = screen.getByAltText(`${mockData.name} icon`);
 
     expect(icon).toBeInTheDocument();
-    expect(icon).toHaveAttribute("src", mockData.iconSrc);
+    expect(icon).toHaveAttribute("src", `/svg/${mockData.name}.svg`);
   });
 });

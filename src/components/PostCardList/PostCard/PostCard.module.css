@@ -17,10 +17,6 @@
   transition: var(--box-shadow-transition);
 }
 
-.postCard img {
-  margin-right: 10px;
-}
-
 .postCard__title {
   margin: 0 0 1rem;
 
@@ -30,7 +26,9 @@
 :is(.postCard__date, .postCard__readingTime) {
   margin: 0.5rem 0;
 
-  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
   opacity: 0.7;
   transition: opacity var(--transition-duration-and-timing);

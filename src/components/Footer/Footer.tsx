@@ -1,17 +1,17 @@
-import { ContactItem } from "components/ContactItem/ContactItem";
-import { ContactBar } from "./ContactBar/ContactBar";
+import type { ContactItem } from "components/ContactBar/ContactItem/ContactItem";
+import { ContactBar } from "components/ContactBar/ContactBar";
 import styles from "./Footer.module.css";
 
 const CONTACT_ITEMS: Array<ContactItem> = [
   {
-    iconSrc: "/svg/github.svg",
-    title: "TITLE",
-    href: "https://github.com/GenaroIBC"
+    href: "https://github.com/GenaroIBC",
+    name: "github",
+    size: "medium"
   },
   {
-    iconSrc: "/svg/linkedin.svg",
-    title: "TITLE",
-    href: "https://www.linkedin.com/in/genaro-bonavita-170742231/"
+    href: "https://www.linkedin.com/in/genaro-bonavita-170742231/",
+    name: "linkedin",
+    size: "medium"
   }
 ];
 
