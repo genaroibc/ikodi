@@ -34,13 +34,15 @@ export function Header() {
 
   return (
     <header className={styles.header}>
-      <Image
-        className={styles.header__logo}
-        src="/img/logo-dark.png"
-        alt="IKodi Logo"
-        width={390}
-        height={187}
-      />
+      <Link href="/">
+        <Image
+          className={styles.header__logo}
+          src="/img/logo-dark.png"
+          alt="IKodi Logo"
+          width={390}
+          height={187}
+        />
+      </Link>
       <nav id="open-menu-btn" className={styles.navBar}>
         {LINKS.map(({ href, title, target }) => (
           <Link
