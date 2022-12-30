@@ -93,14 +93,6 @@ section {
   padding: 1.5rem;
 }
 
-p code {
-  padding: 0.2rem;
-
-  border-radius: 5px;
-
-  color: var(--inline-code-color);
-}
-
 button {
   padding: 1rem 2rem;
 
