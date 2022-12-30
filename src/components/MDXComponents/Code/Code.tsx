@@ -1,6 +1,7 @@
+import Image from "next/image";
 import styles from "./Code.module.css";
 
-type ProgrammingLanguage = "JavaScript" | "TypeScript" | "HTML" | "CSS";
+type ProgrammingLanguage = "javascript" | "typescript" | "html";
 
 type Props = {
   children: React.ReactNode;
@@ -11,7 +12,12 @@ export function Code({ children, language }: Props) {
   return (
     <div className={styles.codeContainer}>
       <span className={styles.codeContainer__language}>
-        {language || "unknown"}
+        <Image
+          alt={`${language} logo`}
+          src={`/svg/techs/${language}.svg`}
+          width={30}
+          height={30}
+        />
       </span>
       {children}
     </div>

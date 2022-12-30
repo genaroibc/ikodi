@@ -14,7 +14,7 @@
   display: block;
   width: max-content;
 
-  padding: 0.3rem 1rem;
+  padding: 0.3rem;
 
   transition: var(--text-hover-transition);
 
@@ -22,4 +22,17 @@
   color: var(--opaque-white);
 
   border-radius: 10px 10px 0 0;
+}
+
+.codeContainer__language img {
+  margin: 0.3rem !important;
+
+  aspect-ratio: 1/1;
+
+  transition: filter 0.3s;
+  filter: brightness(0);
+}
+
+.codeContainer:hover img {
+  filter: brightness(1);
 }
