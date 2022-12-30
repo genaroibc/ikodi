@@ -29,7 +29,7 @@ type Props = {
   className?: HTMLAttributes<HTMLElement>["className"];
 };
 
-export function Icon({ name, size, className }: Props) {
+export function Icon({ name, size, className = "" }: Props) {
   return (
     <Image
       alt={`${name} icon`}
