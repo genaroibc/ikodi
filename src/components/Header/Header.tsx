@@ -24,9 +24,8 @@ const LINKS = [
 ];
 
 const toggleMenu = () => {
-  document
-    .getElementById("open-menu-btn")
-    ?.classList.toggle(styles.menu_opened);
+  console.log("hola");
+  document.getElementById("open-menu-btn")?.classList.toggle(styles.menuOpened);
 };
 
 export function Header() {
