@@ -26,7 +26,7 @@ const IconAttributes: Record<IconSize, { px: number; className: string }> = {
 type Props = {
   name: IconName;
   size: IconSize;
-  className?: HTMLAttributes<HTMLButtonElement>["className"];
+  className?: HTMLAttributes<HTMLElement>["className"];
 };
 
 export function Icon({ name, size, className }: Props) {

@@ -1,3 +1,4 @@
+import { Icon } from "components/Icon/Icon";
 import Image from "next/image";
 import { Comment } from "types";
 import styles from "./CommentItem.module.css";
@@ -20,20 +21,10 @@ export function CommentItem({
       {showActionsBox ? (
         <nav className={styles.comment__actions}>
           <button onClick={handleEdit}>
-            <Image
-              src="/svg/edit.svg"
-              alt="edit comment icon"
-              width={20}
-              height={20}
-            />
+            <Icon size="tiny" name="edit" />
           </button>
           <button onClick={handleDelete}>
-            <Image
-              src="/svg/trash.svg"
-              alt="delete comment icon"
-              width={20}
-              height={20}
-            />
+            <Icon size="tiny" name="trash" />
           </button>
         </nav>
       ) : null}

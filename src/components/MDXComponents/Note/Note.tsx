@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Icon } from "components/Icon/Icon";
 import styles from "./Note.module.css";
 
 type NoteIcon = "info" | "warn";
@@ -11,13 +11,7 @@ type Props = {
 export function Note({ children, type }: Props) {
   return (
     <div className={styles.note}>
-      <Image
-        className={styles.note__icon}
-        width={30}
-        height={30}
-        src={`/svg/${type}.svg`}
-        alt={`${type} icon`}
-      />
+      <Icon className={styles.note__icon} name={type} size="small" />
       {children}
     </div>
   );

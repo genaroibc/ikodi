@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Icon } from "components/Icon/Icon";
 import Link from "next/link";
 import styles from "./ArticleFooter.module.css";
 
@@ -7,12 +7,7 @@ export function ArticleFooter() {
     <>
       <p className={styles.thanks}>Thanks for reading!!</p>
       <Link className={styles.backToHome} href="/">
-        <Image
-          src="/svg/arrow-right.svg"
-          alt="arrow icon"
-          height={20}
-          width={20}
-        />
+        <Icon name="arrow" size="tiny" />
         Back to home
       </Link>
     </>

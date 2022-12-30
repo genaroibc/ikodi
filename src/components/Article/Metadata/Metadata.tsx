@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Icon } from "components/Icon/Icon";
 import { PostMetadata } from "types";
 import styles from "./Metadata.module.css";
 
@@ -6,17 +6,12 @@ export function Metadata({ reading_time, date }: PostMetadata) {
   return (
     <div className={styles.metadataContainer}>
       <span>
-        <Image src="/svg/clock.svg" alt="clock icon" width={20} height={20} />
+        <Icon name="clock" size="tiny" />
         {reading_time}
       </span>
 
       <span>
-        <Image
-          src="/svg/calendar.svg"
-          alt="clock icon"
-          width={20}
-          height={20}
-        />
+        <Icon name="calendar" size="tiny" />
         {date}
       </span>
     </div>
