@@ -10,7 +10,7 @@ reading_time: "2min"
 
 When we are developing complex applications, a typical problem we may face is that we call a function or method that has many parameters, and we need to remember what the correct order is:
 
-<Code language="JavaScript">
+<Code language="javascript">
 ```javascript
 
 updateSomeState(oldState, newState, true, 0); // is this even right 🤔 ?
@@ -28,7 +28,7 @@ A good approach to solving this problem is parameters destructuring (or named pa
 
 ### Basic destructuring
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 const IKodi = {
@@ -51,7 +51,7 @@ console.log(topics[2]); // "web development"
 
 If the properties we are looking for are not defined, the variables (or constants) are `undefined`, but we can avoid this by setting a default value:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 const { author = "Anonymous", topics = [] } = IKodi;
@@ -72,7 +72,7 @@ console.log(topics[2]); // if not defined, it will be assigned []
 
 Usually (for example when handling APIs responses), a property has the same name as one of our variables, or it's not descriptive enough (e.g. "data" or "response") and we want to rename it. We can rename the destructured property like so:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 const { author: postAuthor, topics: postTopics } = IKodi;
@@ -90,7 +90,7 @@ console.log(topics[2]); // ReferenceError ⚠️ because doesn't exists
 
 An example combining destructuring, default values and properties renaming:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 const { author: postAuthor = "Anonymus", topics: postTopics = [] } = IKodi;
@@ -112,7 +112,7 @@ All these destructuring concepts apply to function parameters as well.
   able to use the _use strict_ mode inside the function body.
 </Note>
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 // with normal parameters
@@ -132,7 +132,7 @@ The second `removeRepeatedItems` function takes an _object_ as argument and **de
 
 So, going back with the first example in this article, we can do the following:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 updateSomeState({ oldState, newState, priority: true, destroyedNodes: 0 }); // this is more descriptive now

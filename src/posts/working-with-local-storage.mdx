@@ -22,7 +22,7 @@ As you can imagine, it is a very convenient way to personalize user experience.
 
 The way Local Storage stores data is similar to an ordinary JavaScript object, that is a set of _key_ and _value_ pairs:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 const object = {
@@ -58,13 +58,13 @@ If we reload the page, we can see that the data we've just added is still there:
 
 Now: how can we bring this to JavaScript?
 
-Well, it's pretty simple, but you need to know something very important first: **Local Storage can only store data as a _`string`_**, so we need to stringify it first.
+Well, it's pretty simple, but you need to know something very important first: **Local Storage can only store data as a _string_**, so we need to stringify it first.
 
 The way JavaScript lets us do it is via the global `JSON` object methods:
 
 - `JSON.stringify()` accepts a valid JavaScript value (object, array, number, etc...) and returns a stringified copy:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 JSON.stringify({
@@ -78,10 +78,11 @@ JSON.stringify({
 - `JSON.parse()` accepts a valid **stringified** JavaScript
   value and returns its equivalent JavaScript value:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
-JSON.parse("{name:'foo',age:23}"); // returns {
+JSON.parse("{name:'foo',age:23}");
+// returns  {
 //   name: "foo",
 //   age: 23
 // }
@@ -95,7 +96,7 @@ With this in mind, we are ready to interact with the Local Storage via JavaScrip
 
 The Local Storage API provides us the following methods:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 localStorage.setItem(<key>, <stringified-data>) // to save data
@@ -104,7 +105,7 @@ localStorage.getItem(<key>) // to get saved data by key
 
 localStorage.key(<index>) // to get saved data by index
 
-localStorage.removeItem(<key>) // to remove saved data
+localStorage.removeItem(<key>) // to remove saved data by key
 
 localStorage.clear() // to empty storage
 ```
@@ -119,7 +120,7 @@ So, let's imagine a real-world example: We need to remember the user's preferred
 
 For this example, i'm going to use vanila JS, but it is easily extrapolated to any library/framework.
 
-<Code language="HTML">
+<Code language="html">
 
 ```html
 <select name="language" id="language-select">
@@ -136,7 +137,7 @@ We create a _select_ element with language options and we add it the _language-s
 
 <br />
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 // we listen for "change" events in the document
@@ -171,7 +172,7 @@ Once we've added our _change_ event listener, we check if the event target (the 
 
 Now, we can do the following:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 document.addEventListener("DOMContentLoaded", () => {
@@ -188,7 +189,7 @@ When the page has loaded and the DOM is ready, we get the saved language from Lo
 
 Also, a good feature is that users can reset their language preference, and for this we would need to remove it from Local Storage:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 function resetLanguage() {
@@ -200,7 +201,7 @@ function resetLanguage() {
 
 And, finally, in an unlikely scenario, we could completly empty the Local Storage:
 
-<Code language="JavaScript">
+<Code language="javascript">
 
 ```javascript
 localStorage.clear();
