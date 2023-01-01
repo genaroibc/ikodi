@@ -113,7 +113,11 @@
   }
 
   .header {
-    padding: 0.5rem 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .authNavBar__btn {
+    padding: 0.3rem 0.6rem;
   }
 }
 
@@ -127,4 +131,6 @@
   height: 50px;
 
   border-radius: 50%;
+
+  outline: 1px solid #fff8;
 }

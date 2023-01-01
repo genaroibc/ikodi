@@ -24,7 +24,6 @@ const LINKS = [
 ];
 
 const toggleMenu = () => {
-  console.log("hola");
   document.getElementById("open-menu-btn")?.classList.toggle(styles.menuOpened);
 };
 
@@ -65,7 +64,12 @@ export function Header() {
               width={50}
               height={50}
             />
-            <button onClick={() => signOut()}>Log out</button>
+            <button
+              className={styles.authNavBar__btn}
+              onClick={() => signOut()}
+            >
+              Log out
+            </button>
           </>
         ) : status === "loading" ? (
           <Loader width={50} height={50} />
