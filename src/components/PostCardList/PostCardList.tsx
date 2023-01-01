@@ -1,10 +1,10 @@
 import { v4 as uuid } from "uuid";
-import { Post } from "types";
+import { PostMetadata } from "types";
 import { PostCard } from "./PostCard/PostCard";
 import styles from "./PostCardList.module.css";
 
 type Props = {
-  posts: Array<Post>;
+  posts: Array<PostMetadata>;
 };
 
 export function PostCardList({ posts }: Props) {

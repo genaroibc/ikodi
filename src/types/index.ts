@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-export type Post = {
-  title: string;
-  date: string;
-  content: string;
-  slug: string;
-  reading_time: string;
-};
-
 export type PostMetadata = {
+  content: string;
   date: string;
   reading_time: string;
+  image_description: string;
+  image_url: string;
+  slug: string;
   title: string;
 };
 

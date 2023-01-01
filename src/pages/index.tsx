@@ -1,10 +1,10 @@
 import { Hero } from "components/Hero/Hero";
 import { PostCardList } from "components/PostCardList/PostCardList";
 import { getAllPostsMetadata } from "lib/mdx";
-import { Post } from "types";
+import { PostMetadata } from "types";
 
 type Props = {
-  posts: Array<Post>;
+  posts: Array<PostMetadata>;
 };
 
 export default function Home({ posts = [] }: Props) {

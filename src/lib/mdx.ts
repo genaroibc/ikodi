@@ -52,17 +52,19 @@ export const getPostBySlug = async (slug: string): Promise<SerializedPost> => {
   };
 };
 
-export const getAllPostsMetadata = () => {
+export const getAllPostsMetadata = (): PostMetadata[] => {
   const postsTitles = getPostsSlugs({ removeExtension: false });
 
-  // @ts-ignore
-  const composedPosts = postsTitles.reduce((allPosts, postTitle) => {
-    const { data: metadata, content } = parseMDXFile({ title: postTitle });
+  const composedPosts = postsTitles.reduce<PostMetadata[]>(
+    (allPosts, postTitle) => {
+      const { data, content } = parseMDXFile({ title: postTitle });
 
-    const slug = postTitle.replace(".mdx", "");
+      const slug = postTitle.replace(".mdx", "");
 
-    return [...allPosts, { ...metadata, content, slug }];
-  }, []);
+      return [...allPosts, { ...(data as PostMetadata), content, slug }];
+    },
+    []
+  );
 
   return composedPosts;
 };
