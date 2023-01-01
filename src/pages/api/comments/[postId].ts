@@ -23,6 +23,13 @@ const handler: NextApiHandler = async (req, res) => {
 
         const comments = await getAllCommentsByPostId(query.postId as string);
 
+        if (!comments) {
+          return res.status(409).json({
+            ok: false,
+            message: "There was an error getting comments"
+          });
+        }
+
         return res.status(200).json({ ok: true, comments });
       } catch (error) {
         // @ts-ignore
@@ -33,6 +40,13 @@ const handler: NextApiHandler = async (req, res) => {
       try {
         const createdComment = await createOneCommentByData(body.commentData);
 
+        if (!createdComment) {
+          return res.status(409).json({
+            ok: false,
+            message: "There was an error creating the comment"
+          });
+        }
+
         return res.status(200).json({ ok: true, createdComment });
       } catch (error) {
         // @ts-ignore
@@ -42,6 +56,13 @@ const handler: NextApiHandler = async (req, res) => {
     case "DELETE":
       try {
         const deletedComment = await deleteOneCommentById(body.commentId);
+
+        if (!deletedComment) {
+          return res.status(409).json({
+            ok: false,
+            message: "There was an error deleting the comment"
+          });
+        }
 
         return res.status(200).json({ ok: true, deletedComment });
       } catch (error) {
@@ -60,7 +81,18 @@ const handler: NextApiHandler = async (req, res) => {
           commentId
         });
 
-        return res.status(200).json({ ok: true, updatedComment });
+        if (!updatedComment) {
+          return res.status(409).json({
+            ok: false,
+            message: "There was an error updating the comment"
+          });
+        }
+
+        return res.status(200).json({
+          ok: true,
+          message: "Comment updated successfully",
+          updatedComment
+        });
       } catch (error) {
         // @ts-ignore
         return res.status(error.status).json({ ok: false, ...error });

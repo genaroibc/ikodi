@@ -30,78 +30,89 @@ const CommentsContext = createContext<CommentsContext | null>(null);
 export function CommentsProvider({ children }: { children: React.ReactNode }) {
   const [comments, setComments] = useState<Comment[]>([]);
 
-  const handleGetComments = async (postId: string) => {
+  type GenericReqHandlerParams = {
+    handler: (data: any) => any;
+    handlerParams: any;
+    onError: any;
+    onSuccess: any;
+  };
+
+  const genericReqHandler = async ({
+    handler,
+    handlerParams,
+    onError,
+    onSuccess
+  }: GenericReqHandlerParams) => {
     try {
-      const { data } = await getPostComments({ postId });
+      const { data } = await handler(handlerParams);
 
-      if (!data.ok) {
-        throw new Error(data);
-      }
+      if (!data.ok) throw new Error(data);
 
-      setComments(
-        sortByDate<Comment>({ newestFirst: true, items: data.comments })
-      );
+      onSuccess(data);
     } catch (error) {
-      console.error({ error });
+      onError(error);
     }
   };
 
-  const handleAddComment = async (commentData: Comment) => {
-    try {
-      const { data } = await createComment({ commentData });
-
-      if (!data.ok) {
-        throw new Error(data);
+  const handleGetComments = async (postId: string) => {
+    genericReqHandler({
+      handler: getPostComments,
+      handlerParams: { postId },
+      onError: console.error,
+      onSuccess: (data: any) => {
+        setComments(
+          sortByDate<Comment>({ newestFirst: true, items: data.comments })
+        );
       }
+    });
+  };
 
-      setComments(prevState => [data.createdComment, ...prevState]);
-    } catch (error) {
-      console.error({ error });
-    }
+  const handleAddComment = async (commentData: Comment) => {
+    genericReqHandler({
+      handler: createComment,
+      handlerParams: { commentData },
+      onError: console.error,
+      onSuccess: (data: any) => {
+        setComments(prevState => [data.createdComment, ...prevState]);
+      }
+    });
   };
 
   const handleDeleteComment: HandleDeleteComment = async ({
     commentId,
     postId
   }) => {
-    try {
-      const { data } = await deleteComment({
-        commentId,
-        postId
-      });
-
-      if (!data.ok) {
-        throw new Error(data);
+    genericReqHandler({
+      handler: deleteComment,
+      handlerParams: { commentId, postId },
+      onError: console.error,
+      onSuccess: (data: any) => {
+        setComments(prevState =>
+          prevState.filter(comment => comment._id !== commentId)
+        );
       }
-
-      setComments(prevState =>
-        prevState.filter(comment => comment._id !== commentId)
-      );
-    } catch (error) {
-      console.error({ error });
-    }
+    });
   };
 
   const handleUpdateComment: HandleUpdateComment = async ({
     commentData,
     postId
   }) => {
-    try {
-      const { data } = await updateComment({ commentData, postId });
+    genericReqHandler({
+      handler: deleteComment,
+      handlerParams: { commentData, postId },
+      onError: console.error,
+      onSuccess: (data: any) => {
+        setComments(prevState => {
+          const noModifiedComments = prevState.filter(comment => {
+            return comment._id !== data.updatedComment._id;
+          });
+          const comments = [...noModifiedComments, data.updatedComment];
 
-      if (!data.ok) throw new Error(data);
-
-      setComments(prevState => {
-        const noModifiedComments = prevState.filter(comment => {
-          return comment._id !== data.updatedComment._id;
+          return sortByDate<Comment>({ newestFirst: true, items: comments });
         });
-        const comments = [...noModifiedComments, data.updatedComment];
-
-        return sortByDate<Comment>({ newestFirst: true, items: comments });
-      });
-    } catch (error) {
-      console.error(error);
-    }
+      }
+    });
   };
 
   return (

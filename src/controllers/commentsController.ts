@@ -6,7 +6,7 @@ export async function getAllCommentsByPostId(postId: string) {
   try {
     const comments = await CommentsModel.find({ postId });
 
-    return comments ?? [];
+    return comments;
   } catch (error) {
     return error;
   }
@@ -16,7 +16,7 @@ export async function getOneCommentById(_id: CommentId) {
   try {
     const comment = await CommentsModel.findById(_id);
 
-    return comment ?? {};
+    return comment;
   } catch (error) {
     return error;
   }
@@ -31,7 +31,7 @@ export async function createOneCommentByData(commentData: Comment) {
 
     await createdComment.save();
 
-    return createdComment ?? {};
+    return createdComment;
   } catch (error) {
     return error;
   }
@@ -41,7 +41,7 @@ export async function deleteOneCommentById(_id: CommentId) {
   try {
     const deletedComment = await CommentsModel.findByIdAndRemove(_id);
 
-    return deletedComment ?? {};
+    return deletedComment;
   } catch (error) {
     return error;
   }
@@ -62,7 +62,7 @@ export async function updateOneCommentByData({
       { new: true }
     );
 
-    return updatedComment ?? {};
+    return updatedComment;
   } catch (error) {
     return error;
   }
