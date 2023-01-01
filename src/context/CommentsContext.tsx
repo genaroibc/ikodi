@@ -99,7 +99,7 @@ export function CommentsProvider({ children }: { children: React.ReactNode }) {
     postId
   }) => {
     genericReqHandler({
-      handler: deleteComment,
+      handler: updateComment,
       handlerParams: { commentData, postId },
       onError: console.error,
       onSuccess: (data: any) => {
