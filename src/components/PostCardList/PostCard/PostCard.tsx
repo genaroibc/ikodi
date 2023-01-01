@@ -1,12 +1,27 @@
 import { Icon } from "components/Icon/Icon";
+import Image from "next/image";
 import Link from "next/link";
-import { Post } from "types";
+import { PostMetadata } from "types";
 import styles from "./PostCard.module.css";
 
-export function PostCard({ date, title, slug, reading_time }: Post) {
+export function PostCard({
+  date,
+  title,
+  reading_time,
+  image_description,
+  image_url,
+  slug
+}: PostMetadata) {
   return (
     <Link className={styles.link} href={`/${slug}`}>
       <article className={styles.postCard}>
+        <Image
+          className={styles.postCard__img}
+          src={image_url}
+          alt={image_description}
+          fill
+        />
+
         <h3 className={styles.postCard__title}>{title}</h3>
 
         <h4 className={styles.postCard__date}>
