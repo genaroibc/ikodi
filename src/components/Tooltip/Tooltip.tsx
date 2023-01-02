@@ -12,7 +12,7 @@ export function Tooltip({ items, children }: Props) {
     <span className={styles.tooltipContainer}>
       {children}
 
-      <span className={styles.tooltip}>
+      <span role="tooltip" className={styles.tooltip}>
         <ContactBar items={items} />
       </span>
     </span>

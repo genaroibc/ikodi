@@ -13,28 +13,4 @@ describe("Tooltip", () => {
 
     expect(tooltipContainer).toBeInTheDocument();
   });
-
-  // it("shows tooltip when hovering", () => {
-  //   const mockItems = [
-  //     {
-  //       href: "https://github.com/GenaroIBC",
-  //       iconSrc: "/svg/github.svg",
-  //       title: "github"
-  //     }
-  //   ];
-
-  //   render(
-  //     <Tooltip items={mockItems}>
-  //       <span>Hover me</span>
-  //     </Tooltip>
-  //   );
-
-  //   const tooltipContainer = screen.getByText("Hover me");
-
-  //   const tooltip = screen.getByAltText("github");
-
-  //   fireEvent.mouseOver(tooltipContainer);
-
-  //   expect(tooltip).toBeVisible();
-  // });
 });
