@@ -92,9 +92,7 @@ export function CommentForm({ afterSubmit, postId, action }: Props) {
             defaultValue={action.commentData?.content}
           />
 
-          <button className={styles.commentForm__submitBtn} type="submit">
-            Comment
-          </button>
+          <button type="submit">Comment</button>
         </form>
       ) : status === "loading" ? (
         <Loader height={50} width={50} />

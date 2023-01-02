@@ -5,10 +5,4 @@
 
   margin: 1rem auto;
   padding: 0.5rem 1rem;
-
-  border-radius: 5px;
-  border: none;
-
-  background-color: var(--terciary-color);
-  font-size: 1rem;
 }
