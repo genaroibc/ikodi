@@ -78,7 +78,7 @@ export function Header() {
         )}
       </nav>
 
-      <button onClick={toggleMenu} className={styles.menuBtn}>
+      <button accessKey="k" onClick={toggleMenu} className={styles.menuBtn}>
         <span className={styles.menuBtn__stick}></span>
         <span className={styles.menuBtn__stick}></span>
         <span className={styles.menuBtn__stick}></span>

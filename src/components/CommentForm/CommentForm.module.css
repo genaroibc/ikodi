@@ -16,6 +16,15 @@
   font-family: inherit;
 
   resize: none;
+  border: none;
+}
+
+.commentForm :is(input, textarea):focus {
+  outline: 1px solid #fffa;
+}
+
+.commentForm label {
+  font-size: 1.1rem;
 }
 
 .commentForm__header {

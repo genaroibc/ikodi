@@ -105,6 +105,7 @@
 
   .menuBtn {
     display: flex;
+    margin: 0;
   }
 
   .header__logo {

@@ -82,6 +82,7 @@ export function CommentForm({ afterSubmit, postId, action }: Props) {
             <h4>{session?.user?.name}</h4>
           </header>
 
+          <label htmlFor="commentContent">Your comment</label>
           <textarea
             required={true}
             minLength={4}
@@ -89,6 +90,7 @@ export function CommentForm({ afterSubmit, postId, action }: Props) {
             name="commentContent"
             id="commentContent"
             rows={6}
+            placeholder="Leave your comment here..."
             defaultValue={action.commentData?.content}
           />
 
