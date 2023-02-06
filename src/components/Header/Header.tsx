@@ -18,7 +18,7 @@ const LINKS = [
   },
   {
     title: "portfolio",
-    href: "https://portfolio-genaroibc.vercel.app/",
+    href: "https://genaro-bonavita.vercel.app/",
     target: "_blank"
   }
 ];
