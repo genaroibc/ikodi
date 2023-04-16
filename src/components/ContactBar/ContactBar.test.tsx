@@ -11,7 +11,7 @@ describe("ContactBar", () => {
         size: "medium"
       },
       {
-        href: "https://www.linkedin.com/in/genaro-bonavita-170742231/",
+        href: "https://linkedin.com/in/genaro-bonavita/",
         name: "linkedin",
         size: "medium"
       }
