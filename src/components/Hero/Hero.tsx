@@ -24,15 +24,15 @@ export function Hero() {
       </h2>
 
       <p className={styles.heroDescription}>
-        Welcome 👋. I am{" "}
+        👋 Welcome! I am{" "}
         <Tooltip items={CONTACT_ITEMS}>
           <span className={styles.heroDescription__name}>Genaro Bonavita</span>
         </Tooltip>
         , Frontend Developer.
       </p>
       <p className={styles.heroDescription}>
-        Here I share my knowledge writting posts about different tools,
-        technologies and concepts.
+        Here I share my knowledge writing posts about different tools,
+        technologies and concepts related to the world of web development.
       </p>
       <p className={styles.heroDescription}>I hope you enjoy it 🚀!</p>
     </section>
