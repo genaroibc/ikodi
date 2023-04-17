@@ -17,14 +17,17 @@ const CONTACT_ITEMS: Array<ContactItem> = [
 
 export function Footer() {
   return (
-    <footer className={styles.footer}>
-      <p className={styles.footer__contact__title}>Reach me on:</p>
+    <div className={styles.footer_wrapper}>
+      <footer className={styles.footer}>
+        <p className={styles.footer__contact__title}>Reach me on:</p>
 
-      <ContactBar items={CONTACT_ITEMS} />
+        <ContactBar items={CONTACT_ITEMS} />
 
-      <p>
-        Developed by <span className="text-bold">Genaro Bonavita</span> in 2022
-      </p>
-    </footer>
+        <p>
+          Developed by <span className="text-bold">Genaro Bonavita</span> in
+          2022
+        </p>
+      </footer>
+    </div>
   );
 }

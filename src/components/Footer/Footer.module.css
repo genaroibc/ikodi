@@ -1,9 +1,13 @@
+.footer_wrapper {
+  background-color: var(--secondary-color);
+}
+
 .footer {
   padding: 1rem;
   margin: auto 0;
 
-  background-color: var(--secondary-color);
-
+  max-width: var(--page-max-width);
+  margin: 0 auto;
   text-align: center;
   font-size: 1.2rem;
 }

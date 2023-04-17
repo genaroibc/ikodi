@@ -4,13 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  background-color: var(--secondary-color);
-  box-shadow: var(--box-shadow);
+  max-width: var(--page-max-width);
+  margin: 0 auto;
 
   padding: 1rem;
 }

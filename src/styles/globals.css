@@ -37,6 +37,8 @@
 
   --text-hover-transition: var(--transition-duration-and-timing) color;
   --box-shadow-transition: var(--transition-duration-and-timing) box-shadow;
+
+  --page-max-width: 1400px;
 }
 
 html,
@@ -52,17 +54,13 @@ html {
   color-scheme: dark;
 
   color: white;
-  background-color: #000;
+  background-color: var(--primary-color);
 
   scroll-behavior: smooth;
 }
 
 body {
   margin: auto;
-
-  max-width: 1400px;
-
-  background-color: var(--primary-color);
 }
 
 a {
