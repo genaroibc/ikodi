@@ -4,9 +4,9 @@
 
 IKodi is a place were I share my knowledge about programming and web development.
 
-## 🔗 Visit It
+## 🔗 Visit IKodi
 
-Visit it [here](https://ikodi.vercel.app)
+Visit IKodi at [blog.gena.dev](https://blog.gena.dev)
 
 ## 🚀 Stack
 
